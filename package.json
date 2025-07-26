@@ -1,17 +1,39 @@
 {
-  "name": "@example/starter",
-  "version": "0.0.1",
+  "name": "ultimate-ai-coding-site",
+  "version": "1.0.0",
+  "description": "The Ultimate AI-Powered Coding Platform",
   "private": true,
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "type-check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/react": "^3.0.0",
+    "@astrojs/tailwind": "^5.0.0",
+    "@monaco-editor/react": "^4.6.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5.0.0",
+    "lucide-react": "^0.292.0",
+    "framer-motion": "^10.16.0",
+    "prismjs": "^1.29.0",
+    "marked": "^9.1.0",
+    "highlight.js": "^11.9.0",
+    "@headlessui/react": "^1.7.0",
+    "clsx": "^2.0.0"
   },
   "devDependencies": {
     "@astrojs/preact": "^1.0.2",
     "@astrojs/sitemap": "^1.0.0",
     "@netlify/netlify-marketing-tokens": "^1.1.0",
-    "astro": "^2.0.0"
+    "astro": "^4.0.0",
+    "@tailwindcss/typography": "^0.5.0",
+    "autoprefixer": "^10.4.0"
   }
 }
