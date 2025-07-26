@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles for Pretty Little Bingo */
+@layer base {
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+}
+
+@layer components {
+  .bingo-ball {
+    @apply w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg;
+  }
+  
+  .bingo-ball-b {
+    @apply bg-blue-600;
+  }
+  
+  .bingo-ball-i {
+    @apply bg-red-600;
+  }
+  
+  .bingo-ball-n {
+    @apply bg-white text-black border-2 border-gray-300;
+  }
+  
+  .bingo-ball-g {
+    @apply bg-green-600;
+  }
+  
+  .bingo-ball-o {
+    @apply bg-yellow-500;
+  }
+  
+  .bingo-card {
+    @apply bg-white rounded-lg shadow-xl p-4 max-w-sm;
+  }
+  
+  .bingo-cell {
+    @apply w-12 h-12 border border-gray-300 flex items-center justify-center text-sm font-semibold cursor-pointer hover:bg-gray-100 transition-colors;
+  }
+  
+  .bingo-cell.marked {
+    @apply bg-bingo-pink text-white;
+  }
+  
+  .slot-reel {
+    @apply bg-gray-800 border-2 border-gray-600 rounded-lg p-4 text-center;
+  }
+  
+  .slot-symbol {
+    @apply text-4xl mb-2;
+  }
+  
+  .roulette-wheel {
+    @apply relative w-64 h-64 rounded-full border-8 border-yellow-400 mx-auto;
+    background: conic-gradient(
+      from 0deg,
+      #dc2626 0deg 18deg,
+      #1f2937 18deg 36deg,
+      #dc2626 36deg 54deg,
+      #1f2937 54deg 72deg,
+      #dc2626 72deg 90deg,
+      #1f2937 90deg 108deg,
+      #dc2626 108deg 126deg,
+      #1f2937 126deg 144deg,
+      #dc2626 144deg 162deg,
+      #1f2937 162deg 180deg,
+      #dc2626 180deg 198deg,
+      #1f2937 198deg 216deg,
+      #dc2626 216deg 234deg,
+      #1f2937 234deg 252deg,
+      #dc2626 252deg 270deg,
+      #1f2937 270deg 288deg,
+      #dc2626 288deg 306deg,
+      #1f2937 306deg 324deg,
+      #dc2626 324deg 342deg,
+      #1f2937 342deg 360deg
+    );
+  }
+  
+  .game-card {
+    @apply bg-white/10 backdrop-blur-sm rounded-xl p-6 text-white hover:bg-white/20 transition-all duration-300 cursor-pointer border border-white/20;
+  }
+  
+  .game-card:hover {
+    transform: translateY(-5px);
+  }
+}
