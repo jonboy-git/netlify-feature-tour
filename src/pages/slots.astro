@@ -1,0 +1,491 @@
+---
+import Layout from '../components/layout.astro';
+---
+
+<Layout title="Slot Machines - Pretty Little Bingo">
+  <div class="max-w-6xl mx-auto">
+    <!-- Header -->
+    <div class="text-center mb-8">
+      <h1 class="text-5xl font-bold text-white mb-4 font-fancy">🎰 Slot Machines</h1>
+      <p class="text-xl text-white/80 mb-6">Spin the reels and hit the jackpot!</p>
+      
+      <div class="flex justify-center space-x-6 mb-8">
+        <div class="bg-white/10 backdrop-blur-sm rounded-lg px-6 py-3 border border-white/20">
+          <div class="text-2xl font-bold text-bingo-gold" id="jackpot-amount">$1,234,567</div>
+          <div class="text-sm text-white/80">Progressive Jackpot</div>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm rounded-lg px-6 py-3 border border-white/20">
+          <div class="text-2xl font-bold text-bingo-gold" id="player-balance">$1,000</div>
+          <div class="text-sm text-white/80">Your Balance</div>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm rounded-lg px-6 py-3 border border-white/20">
+          <div class="text-2xl font-bold text-bingo-gold" id="total-winnings">$0</div>
+          <div class="text-sm text-white/80">Session Winnings</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Slot Machine -->
+    <div class="mb-12">
+      <div class="bg-gradient-to-b from-yellow-400 to-yellow-600 rounded-2xl p-8 shadow-2xl max-w-4xl mx-auto">
+        <div class="bg-casino-black rounded-xl p-6">
+          <h2 class="text-3xl font-bold text-bingo-gold text-center mb-6">Pretty Little Slots</h2>
+          
+          <!-- Slot Machine Display -->
+          <div class="bg-gray-900 rounded-lg p-6 mb-6">
+            <div class="grid grid-cols-5 gap-2 mb-6" id="slot-reels">
+              <!-- Reels will be populated by JavaScript -->
+            </div>
+            
+            <!-- Payline Indicator -->
+            <div class="text-center mb-4">
+              <div class="text-bingo-gold font-bold">⟵ PAYLINE ⟶</div>
+            </div>
+          </div>
+
+          <!-- Controls -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            <div class="text-center">
+              <label class="block text-white mb-2">Bet Amount</label>
+              <select id="bet-amount" class="bg-gray-700 text-white px-4 py-2 rounded border border-gray-600 focus:border-bingo-gold focus:outline-none">
+                <option value="1">$1</option>
+                <option value="5" selected>$5</option>
+                <option value="10">$10</option>
+                <option value="25">$25</option>
+                <option value="50">$50</option>
+                <option value="100">$100</option>
+              </select>
+            </div>
+            
+            <div class="text-center">
+              <label class="block text-white mb-2">Lines</label>
+              <select id="paylines" class="bg-gray-700 text-white px-4 py-2 rounded border border-gray-600 focus:border-bingo-gold focus:outline-none">
+                <option value="1">1 Line</option>
+                <option value="5">5 Lines</option>
+                <option value="10" selected>10 Lines</option>
+                <option value="25">25 Lines</option>
+              </select>
+            </div>
+            
+            <div class="text-center">
+              <label class="block text-white mb-2">Total Bet</label>
+              <div id="total-bet" class="bg-gray-700 text-bingo-gold px-4 py-2 rounded border border-gray-600 font-bold">$50</div>
+            </div>
+          </div>
+
+          <!-- Spin Button -->
+          <div class="text-center mb-6">
+            <button id="spin-btn" class="bg-bingo-pink hover:bg-bingo-purple text-white font-bold text-2xl px-12 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
+              🎰 SPIN 🎰
+            </button>
+            <button id="max-bet-spin" class="bg-casino-red hover:bg-red-700 text-white font-bold text-xl px-8 py-3 rounded-xl transition-all duration-300 ml-4">
+              MAX BET
+            </button>
+          </div>
+
+          <!-- Last Win Display -->
+          <div class="text-center" id="win-display">
+            <div class="text-2xl font-bold text-bingo-gold mb-2" id="win-amount">$0</div>
+            <div class="text-white/80" id="win-type">Ready to spin!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Paytable -->
+    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 mb-8">
+      <h3 class="text-2xl font-bold text-white mb-6 text-center">Paytable (per line)</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="bg-white/10 rounded-lg p-4">
+          <div class="text-center">
+            <div class="text-3xl mb-2">🍒🍒🍒🍒🍒</div>
+            <div class="text-bingo-gold font-bold">JACKPOT</div>
+            <div class="text-white/80">1000x bet</div>
+          </div>
+        </div>
+        <div class="bg-white/10 rounded-lg p-4">
+          <div class="text-center">
+            <div class="text-3xl mb-2">⭐⭐⭐⭐⭐</div>
+            <div class="text-bingo-gold font-bold">Five Stars</div>
+            <div class="text-white/80">500x bet</div>
+          </div>
+        </div>
+        <div class="bg-white/10 rounded-lg p-4">
+          <div class="text-center">
+            <div class="text-3xl mb-2">💎💎💎💎💎</div>
+            <div class="text-bingo-gold font-bold">Five Diamonds</div>
+            <div class="text-white/80">250x bet</div>
+          </div>
+        </div>
+        <div class="bg-white/10 rounded-lg p-4">
+          <div class="text-center">
+            <div class="text-3xl mb-2">🍇🍇🍇🍇</div>
+            <div class="text-bingo-gold font-bold">Four Grapes</div>
+            <div class="text-white/80">100x bet</div>
+          </div>
+        </div>
+        <div class="bg-white/10 rounded-lg p-4">
+          <div class="text-center">
+            <div class="text-3xl mb-2">🍊🍊🍊</div>
+            <div class="text-bingo-gold font-bold">Three Oranges</div>
+            <div class="text-white/80">50x bet</div>
+          </div>
+        </div>
+        <div class="bg-white/10 rounded-lg p-4">
+          <div class="text-center">
+            <div class="text-3xl mb-2">🍋🍋</div>
+            <div class="text-bingo-gold font-bold">Two Lemons</div>
+            <div class="text-white/80">10x bet</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Game Statistics -->
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 text-center">
+        <div class="text-4xl mb-2">🎯</div>
+        <h3 class="text-xl font-bold text-bingo-gold mb-2">RTP</h3>
+        <p class="text-white/80">96.5% Return to Player</p>
+      </div>
+      <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 text-center">
+        <div class="text-4xl mb-2">⚡</div>
+        <h3 class="text-xl font-bold text-bingo-gold mb-2">Volatility</h3>
+        <p class="text-white/80">Medium-High</p>
+      </div>
+      <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 text-center">
+        <div class="text-4xl mb-2">💰</div>
+        <h3 class="text-xl font-bold text-bingo-gold mb-2">Max Win</h3>
+        <p class="text-white/80">10,000x your bet</p>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  import confetti from 'canvas-confetti';
+
+  class SlotMachine {
+    constructor() {
+      this.symbols = ['🍒', '🍋', '🍊', '🍇', '⭐', '💎', '🎰', '🍀'];
+      this.reels = [[], [], [], [], []];
+      this.balance = 1000;
+      this.sessionWinnings = 0;
+      this.spinning = false;
+      this.jackpot = 1234567;
+      
+      this.paytable = {
+        '🍒': { 5: 1000, 4: 200, 3: 50, 2: 10 },
+        '⭐': { 5: 500, 4: 150, 3: 40, 2: 5 },
+        '💎': { 5: 250, 4: 100, 3: 30, 2: 3 },
+        '🍇': { 5: 150, 4: 75, 3: 25, 2: 2 },
+        '🍊': { 5: 100, 4: 50, 3: 20 },
+        '🍋': { 5: 75, 4: 40, 3: 15 },
+        '🎰': { 5: 50, 4: 25, 3: 10 },
+        '🍀': { 5: 25, 4: 15, 3: 5 }
+      };
+      
+      this.initializeGame();
+    }
+
+    initializeGame() {
+      this.generateInitialReels();
+      this.setupEventListeners();
+      this.updateDisplay();
+      this.updateTotalBet();
+    }
+
+    generateInitialReels() {
+      for (let reel = 0; reel < 5; reel++) {
+        this.reels[reel] = [];
+        for (let position = 0; position < 3; position++) {
+          this.reels[reel].push(this.getRandomSymbol());
+        }
+      }
+      this.renderReels();
+    }
+
+    getRandomSymbol() {
+      return this.symbols[Math.floor(Math.random() * this.symbols.length)];
+    }
+
+    renderReels() {
+      const reelsContainer = document.getElementById('slot-reels');
+      reelsContainer.innerHTML = '';
+      
+      for (let reel = 0; reel < 5; reel++) {
+        const reelColumn = document.createElement('div');
+        reelColumn.className = 'slot-reel';
+        
+        for (let position = 0; position < 3; position++) {
+          const symbolDiv = document.createElement('div');
+          symbolDiv.className = 'slot-symbol';
+          symbolDiv.textContent = this.reels[reel][position];
+          symbolDiv.id = `reel-${reel}-${position}`;
+          reelColumn.appendChild(symbolDiv);
+        }
+        
+        reelsContainer.appendChild(reelColumn);
+      }
+    }
+
+    async spin() {
+      if (this.spinning) return;
+      
+      const betAmount = parseInt(document.getElementById('bet-amount').value);
+      const paylines = parseInt(document.getElementById('paylines').value);
+      const totalBet = betAmount * paylines;
+      
+      if (this.balance < totalBet) {
+        this.showMessage('Insufficient balance!', 'error');
+        return;
+      }
+      
+      this.spinning = true;
+      this.balance -= totalBet;
+      
+      const spinBtn = document.getElementById('spin-btn');
+      spinBtn.disabled = true;
+      spinBtn.textContent = 'SPINNING...';
+      
+      // Generate new results
+      for (let reel = 0; reel < 5; reel++) {
+        for (let position = 0; position < 3; position++) {
+          this.reels[reel][position] = this.getRandomSymbol();
+        }
+      }
+      
+      // Animate reels
+      await this.animateReels();
+      
+      // Check for wins
+      const winnings = this.checkWins(betAmount, paylines);
+      
+      if (winnings > 0) {
+        this.balance += winnings;
+        this.sessionWinnings += winnings - totalBet;
+        this.celebrateWin(winnings);
+      } else {
+        this.sessionWinnings -= totalBet;
+        document.getElementById('win-amount').textContent = '$0';
+        document.getElementById('win-type').textContent = 'Try again!';
+      }
+      
+      this.updateDisplay();
+      this.spinning = false;
+      spinBtn.disabled = false;
+      spinBtn.textContent = '🎰 SPIN 🎰';
+    }
+
+    async animateReels() {
+      const animationPromises = [];
+      
+      for (let reel = 0; reel < 5; reel++) {
+        const promise = new Promise((resolve) => {
+          const delay = reel * 200; // Stagger reel stops
+          
+          setTimeout(() => {
+            // Show spinning animation
+            for (let position = 0; position < 3; position++) {
+              const symbolElement = document.getElementById(`reel-${reel}-${position}`);
+              symbolElement.style.animation = 'spin 0.1s linear infinite';
+            }
+            
+            // Stop after random duration
+            setTimeout(() => {
+              for (let position = 0; position < 3; position++) {
+                const symbolElement = document.getElementById(`reel-${reel}-${position}`);
+                symbolElement.style.animation = '';
+                symbolElement.textContent = this.reels[reel][position];
+              }
+              resolve();
+            }, 1000 + Math.random() * 1000);
+          }, delay);
+        });
+        
+        animationPromises.push(promise);
+      }
+      
+      await Promise.all(animationPromises);
+    }
+
+    checkWins(betAmount, paylines) {
+      let totalWinnings = 0;
+      const winningLines = [];
+      
+      // Check middle line (main payline)
+      const middleLine = [
+        this.reels[0][1], this.reels[1][1], this.reels[2][1], 
+        this.reels[3][1], this.reels[4][1]
+      ];
+      
+      const lineWin = this.checkLine(middleLine, betAmount);
+      if (lineWin.amount > 0) {
+        totalWinnings += lineWin.amount;
+        winningLines.push({ line: 'middle', ...lineWin });
+      }
+      
+      // For multiple paylines, check additional lines
+      if (paylines >= 5) {
+        // Top line
+        const topLine = [
+          this.reels[0][0], this.reels[1][0], this.reels[2][0], 
+          this.reels[3][0], this.reels[4][0]
+        ];
+        const topWin = this.checkLine(topLine, betAmount);
+        if (topWin.amount > 0) {
+          totalWinnings += topWin.amount;
+          winningLines.push({ line: 'top', ...topWin });
+        }
+        
+        // Bottom line
+        const bottomLine = [
+          this.reels[0][2], this.reels[1][2], this.reels[2][2], 
+          this.reels[3][2], this.reels[4][2]
+        ];
+        const bottomWin = this.checkLine(bottomLine, betAmount);
+        if (bottomWin.amount > 0) {
+          totalWinnings += bottomWin.amount;
+          winningLines.push({ line: 'bottom', ...bottomWin });
+        }
+      }
+      
+      if (winningLines.length > 0) {
+        const bestWin = winningLines.reduce((best, current) => 
+          current.amount > best.amount ? current : best
+        );
+        
+        document.getElementById('win-amount').textContent = `$${totalWinnings}`;
+        document.getElementById('win-type').textContent = `${bestWin.count}x ${bestWin.symbol} - ${bestWin.multiplier}x bet!`;
+      }
+      
+      return totalWinnings;
+    }
+
+    checkLine(line, betAmount) {
+      // Check for matching symbols from left to right
+      const firstSymbol = line[0];
+      let count = 1;
+      
+      for (let i = 1; i < line.length; i++) {
+        if (line[i] === firstSymbol) {
+          count++;
+        } else {
+          break;
+        }
+      }
+      
+      if (count >= 2 && this.paytable[firstSymbol] && this.paytable[firstSymbol][count]) {
+        const multiplier = this.paytable[firstSymbol][count];
+        return {
+          amount: betAmount * multiplier,
+          symbol: firstSymbol,
+          count: count,
+          multiplier: multiplier
+        };
+      }
+      
+      return { amount: 0 };
+    }
+
+    celebrateWin(amount) {
+      if (amount >= 100) {
+        confetti({
+          particleCount: 150,
+          spread: 100,
+          origin: { y: 0.6 }
+        });
+      }
+      
+      if (amount >= 500) {
+        // Big win animation
+        setTimeout(() => {
+          confetti({
+            particleCount: 200,
+            spread: 120,
+            origin: { y: 0.4 }
+          });
+        }, 500);
+      }
+      
+      if (amount >= 1000) {
+        // Jackpot celebration
+        for (let i = 0; i < 5; i++) {
+          setTimeout(() => {
+            confetti({
+              particleCount: 100,
+              angle: 60,
+              spread: 55,
+              origin: { x: 0 }
+            });
+            confetti({
+              particleCount: 100,
+              angle: 120,
+              spread: 55,
+              origin: { x: 1 }
+            });
+          }, i * 250);
+        }
+      }
+    }
+
+    maxBetSpin() {
+      document.getElementById('bet-amount').value = '100';
+      document.getElementById('paylines').value = '25';
+      this.updateTotalBet();
+      this.spin();
+    }
+
+    updateTotalBet() {
+      const betAmount = parseInt(document.getElementById('bet-amount').value);
+      const paylines = parseInt(document.getElementById('paylines').value);
+      const totalBet = betAmount * paylines;
+      document.getElementById('total-bet').textContent = `$${totalBet}`;
+    }
+
+    updateDisplay() {
+      document.getElementById('player-balance').textContent = `$${this.balance.toLocaleString()}`;
+      document.getElementById('total-winnings').textContent = `$${this.sessionWinnings.toLocaleString()}`;
+      
+      // Update jackpot (simulate growth)
+      this.jackpot += Math.floor(Math.random() * 10) + 1;
+      document.getElementById('jackpot-amount').textContent = `$${this.jackpot.toLocaleString()}`;
+    }
+
+    showMessage(message, type) {
+      const messageDiv = document.createElement('div');
+      messageDiv.className = `fixed top-20 left-1/2 transform -translate-x-1/2 px-6 py-3 rounded-lg text-white font-bold z-50 ${
+        type === 'error' ? 'bg-red-600' : 'bg-green-600'
+      }`;
+      messageDiv.textContent = message;
+      document.body.appendChild(messageDiv);
+      
+      setTimeout(() => {
+        messageDiv.remove();
+      }, 3000);
+    }
+
+    setupEventListeners() {
+      document.getElementById('spin-btn').addEventListener('click', () => {
+        this.spin();
+      });
+      
+      document.getElementById('max-bet-spin').addEventListener('click', () => {
+        this.maxBetSpin();
+      });
+      
+      document.getElementById('bet-amount').addEventListener('change', () => {
+        this.updateTotalBet();
+      });
+      
+      document.getElementById('paylines').addEventListener('change', () => {
+        this.updateTotalBet();
+      });
+    }
+  }
+
+  // Initialize slot machine when page loads
+  document.addEventListener('DOMContentLoaded', () => {
+    const slotMachine = new SlotMachine();
+  });
+</script>

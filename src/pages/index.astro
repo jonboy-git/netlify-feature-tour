@@ -2,107 +2,214 @@
 import Layout from '../components/layout.astro';
 ---
 
-<style>
-.steps {
-  background: var(--light);
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: min(90vw, 250px);
-  justify-content: center;
-  margin-top: 3rem;
-  padding: 5rem 5vw;
-  width: 100vw;
-}
-
-@media (min-width: 550px) {
-  .steps {
-    grid-template-columns: repeat(2, min(calc(50% - 1rem), 250px));
-  }
-}
-
-@media (min-width: 1050px) {
-  .steps {
-    grid-template-columns: repeat(4, min(calc(25% - 1.5rem), 250px));
-  }
-}
-
-.step {
-  background: var(--white);
-  border: 1px solid var(--lightBorder);
-  border-radius: var(--card-radius);
-  display: flex;
-  flex-direction: column;
-  font-size: 0.75rem;
-  padding: 1rem 1.5rem 1.5rem;
-  text-align: left;
-  box-shadow: 0 2px 4px rgb(14 30 37 / 12%);
-}
-
-.stepHeading {
-  font-size: 1rem;
-  font-weight: 600;
-  margin: 0;
-}
-
-
-</style>
-
-<Layout
-  title="Netlify Feature Tour"
-  description="This is a small site to show the most powerful features of Netlify quickly!"
-  home
->
-  <main class="steps">
-    <section class="step">
-      <h2 class="stepHeading">Deploy Previews</h2>
-      <p>
-        Every pull request is automatically built in an
-        identical-to-production environment for
-        <strong>painless QA, feedback, and review.</strong>
+<Layout title="Pretty Little Bingo - Ultimate Online Gaming Experience">
+  <!-- Hero Section -->
+  <section class="text-center py-16">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-6xl font-bold font-fancy text-white mb-6 drop-shadow-lg">
+        Welcome to <span class="text-bingo-gold">Pretty Little Bingo</span>
+      </h1>
+      <p class="text-xl text-white/90 mb-8 drop-shadow">
+        Experience the thrill of bingo and casino games in one stunning platform
       </p>
-      <a href="/deploy-previews" class="button">
-        Learn more <span class="sr-only">about Deploy Previews</span>
-      </a>
-    </section>
+      <div class="flex justify-center space-x-4 mb-12">
+        <button class="bg-bingo-pink hover:bg-bingo-purple px-8 py-4 rounded-xl text-white font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+          🎱 Start Playing
+        </button>
+        <button class="bg-white/20 hover:bg-white/30 backdrop-blur-sm px-8 py-4 rounded-xl text-white font-bold text-lg transition-all duration-300 border border-white/30">
+          🎁 Free Bonus
+        </button>
+      </div>
+    </div>
+  </section>
 
-    <section class="step">
-      <h2 class="stepHeading">Instant Rollbacks</h2>
-      <p>
-        Confidently ship to production with the knowledge that it’s a
-        one-click operation to roll back to a previous version of the site.
-        <strong>Instant disaster recovery!</strong>
-      </p>
-      <a href="/instant-rollbacks" class="button">
-        Learn more
-        <span class="sr-only">about Instant Rollbacks</span>
+  <!-- Games Grid -->
+  <section class="py-16">
+    <h2 class="text-4xl font-bold text-center text-white mb-12 font-fancy">Choose Your Game</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      
+      <!-- Bingo Card -->
+      <a href="/bingo" class="game-card group">
+        <div class="text-center">
+          <div class="text-6xl mb-4 group-hover:animate-bounce-slow">🎱</div>
+          <h3 class="text-2xl font-bold mb-2 text-bingo-gold">Classic Bingo</h3>
+          <p class="text-white/80 mb-4">Call out "BINGO!" and win big prizes in our classic 75-ball bingo rooms</p>
+          <div class="bg-white/10 rounded-lg p-3 text-sm">
+            <div class="flex justify-between mb-1">
+              <span>Players Online:</span>
+              <span class="text-bingo-gold font-bold">1,247</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Prize Pool:</span>
+              <span class="text-bingo-gold font-bold">$5,890</span>
+            </div>
+          </div>
+        </div>
       </a>
-    </section>
 
-    <section class="step">
-      <h2 class="stepHeading">Netlify Functions</h2>
-      <p>
-        <strong>Serverless functions are superpowers for web developers!</strong>
-        Securely handle server-like requirements at any scale with no
-        provisioning, scaling, or ops overhead.
-      </p>
-      <a href="/functions" class="button">
-      Learn more
-      <span class="sr-only">about Netlify Functions</span>
+      <!-- Slots Card -->
+      <a href="/slots" class="game-card group">
+        <div class="text-center">
+          <div class="text-6xl mb-4 group-hover:animate-spin-slow">🎰</div>
+          <h3 class="text-2xl font-bold mb-2 text-bingo-gold">Slot Machines</h3>
+          <p class="text-white/80 mb-4">Spin the reels and hit the jackpot with our exciting slot machine collection</p>
+          <div class="bg-white/10 rounded-lg p-3 text-sm">
+            <div class="flex justify-between mb-1">
+              <span>Jackpot:</span>
+              <span class="text-bingo-gold font-bold">$125,430</span>
+            </div>
+            <div class="flex justify-between">
+              <span>RTP:</span>
+              <span class="text-bingo-gold font-bold">96.5%</span>
+            </div>
+          </div>
+        </div>
       </a>
-    </section>
 
-    <section class="step">
-      <h2 class="stepHeading">Netlify Forms</h2>
-      <p>
-        Handle user input with a single line of code. Netlify Forms allow
-        any HTML form to
-        <strong>
-            accept submissions, send notification emails, and trigger custom events.
-        </strong>
-      </p>
-      <a href="/netlify-forms" class="button">
-        Learn more <span class="sr-only">about Netlify Forms</span>
+      <!-- Roulette Card -->
+      <a href="/roulette" class="game-card group">
+        <div class="text-center">
+          <div class="text-6xl mb-4 group-hover:animate-spin">🎯</div>
+          <h3 class="text-2xl font-bold mb-2 text-bingo-gold">Roulette</h3>
+          <p class="text-white/80 mb-4">Place your bets and watch the wheel spin in our authentic roulette experience</p>
+          <div class="bg-white/10 rounded-lg p-3 text-sm">
+            <div class="flex justify-between mb-1">
+              <span>Active Tables:</span>
+              <span class="text-bingo-gold font-bold">12</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Min Bet:</span>
+              <span class="text-bingo-gold font-bold">$1</span>
+            </div>
+          </div>
+        </div>
       </a>
-    </section>
-  </main>
+
+      <!-- Casino Card -->
+      <a href="/casino" class="game-card group lg:col-span-3">
+        <div class="text-center">
+          <div class="text-6xl mb-4 group-hover:animate-pulse-fast">🃏</div>
+          <h3 class="text-2xl font-bold mb-2 text-bingo-gold">Full Casino Experience</h3>
+          <p class="text-white/80 mb-4">Explore our complete casino with poker, blackjack, and more exciting games</p>
+          <div class="grid grid-cols-3 gap-4 bg-white/10 rounded-lg p-4 text-sm">
+            <div class="text-center">
+              <div class="text-bingo-gold font-bold text-lg">50+</div>
+              <div>Games Available</div>
+            </div>
+            <div class="text-center">
+              <div class="text-bingo-gold font-bold text-lg">24/7</div>
+              <div>Live Dealers</div>
+            </div>
+            <div class="text-center">
+              <div class="text-bingo-gold font-bold text-lg">$1M+</div>
+              <div>Daily Prizes</div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-16">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-4xl font-bold text-white mb-12 font-fancy">Why Choose Pretty Little Bingo?</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+          <div class="text-4xl mb-4">🎁</div>
+          <h3 class="text-xl font-bold text-bingo-gold mb-2">Daily Bonuses</h3>
+          <p class="text-white/80">Get free credits and special rewards every day you play</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+          <div class="text-4xl mb-4">🔒</div>
+          <h3 class="text-xl font-bold text-bingo-gold mb-2">Secure & Fair</h3>
+          <p class="text-white/80">Licensed and regulated with certified random number generation</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+          <div class="text-4xl mb-4">💬</div>
+          <h3 class="text-xl font-bold text-bingo-gold mb-2">24/7 Support</h3>
+          <p class="text-white/80">Our friendly team is always here to help you</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Stats -->
+  <section class="py-16 bg-black/20 rounded-3xl my-16">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold text-white mb-8 font-fancy">Live Statistics</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="text-center">
+          <div class="text-3xl font-bold text-bingo-gold mb-2" id="players-online">3,247</div>
+          <div class="text-white/80">Players Online</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-bingo-gold mb-2" id="games-played">125,430</div>
+          <div class="text-white/80">Games Played Today</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-bingo-gold mb-2" id="total-winnings">$892,340</div>
+          <div class="text-white/80">Won Today</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-bingo-gold mb-2" id="jackpot">$1,234,567</div>
+          <div class="text-white/80">Current Jackpot</div>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>
+
+<script>
+  // Animate numbers on page load
+  function animateNumber(element, target, duration = 2000) {
+    const start = 0;
+    const increment = target / (duration / 16);
+    let current = start;
+    
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      element.textContent = Math.floor(current).toLocaleString();
+    }, 16);
+  }
+
+  // Start animations when page loads
+  window.addEventListener('load', () => {
+    const playersElement = document.getElementById('players-online');
+    const gamesElement = document.getElementById('games-played');
+    const winningsElement = document.getElementById('total-winnings');
+    const jackpotElement = document.getElementById('jackpot');
+
+    animateNumber(playersElement, 3247);
+    animateNumber(gamesElement, 125430);
+    
+    // For money amounts, we'll handle the formatting differently
+    let winningsTarget = 892340;
+    let jackpotTarget = 1234567;
+    
+    let winningsCurrent = 0;
+    let jackpotCurrent = 0;
+    
+    const winningsTimer = setInterval(() => {
+      winningsCurrent += winningsTarget / 125;
+      if (winningsCurrent >= winningsTarget) {
+        winningsCurrent = winningsTarget;
+        clearInterval(winningsTimer);
+      }
+      winningsElement.textContent = '$' + Math.floor(winningsCurrent).toLocaleString();
+    }, 16);
+    
+    const jackpotTimer = setInterval(() => {
+      jackpotCurrent += jackpotTarget / 125;
+      if (jackpotCurrent >= jackpotTarget) {
+        jackpotCurrent = jackpotTarget;
+        clearInterval(jackpotTimer);
+      }
+      jackpotElement.textContent = '$' + Math.floor(jackpotCurrent).toLocaleString();
+    }, 16);
+  });
+</script>

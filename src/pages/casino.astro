@@ -1,0 +1,363 @@
+---
+import Layout from '../components/layout.astro';
+---
+
+<Layout title="Casino - Pretty Little Bingo">
+  <div class="max-w-6xl mx-auto">
+    <!-- Hero Section -->
+    <div class="text-center mb-12">
+      <h1 class="text-6xl font-bold text-white mb-6 font-fancy">🃏 Welcome to the Casino 🃏</h1>
+      <p class="text-xl text-white/80 mb-8">Experience the thrill of Vegas from the comfort of your home</p>
+      
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+        <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+          <div class="text-2xl font-bold text-bingo-gold">50+</div>
+          <div class="text-sm text-white/80">Games</div>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+          <div class="text-2xl font-bold text-bingo-gold">24/7</div>
+          <div class="text-sm text-white/80">Live Dealers</div>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+          <div class="text-2xl font-bold text-bingo-gold">$1M+</div>
+          <div class="text-sm text-white/80">Daily Prizes</div>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+          <div class="text-2xl font-bold text-bingo-gold">96.5%</div>
+          <div class="text-sm text-white/80">Average RTP</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Featured Games -->
+    <section class="mb-12">
+      <h2 class="text-4xl font-bold text-white mb-8 text-center font-fancy">Featured Games</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Bingo -->
+        <div class="game-card group relative overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20"></div>
+          <div class="relative z-10 text-center h-full flex flex-col">
+            <div class="text-6xl mb-4 group-hover:animate-bounce-slow">🎱</div>
+            <h3 class="text-2xl font-bold mb-3 text-bingo-gold">Classic Bingo</h3>
+            <p class="text-white/80 mb-4 flex-grow">Join thousands of players in our 75-ball bingo rooms with massive prize pools</p>
+            <div class="bg-black/30 rounded-lg p-3 mb-4">
+              <div class="flex justify-between text-sm mb-1">
+                <span>Players Online:</span>
+                <span class="text-bingo-gold font-bold">1,247</span>
+              </div>
+              <div class="flex justify-between text-sm">
+                <span>Next Game:</span>
+                <span class="text-bingo-gold font-bold">2:34</span>
+              </div>
+            </div>
+            <a href="/bingo" class="bg-bingo-pink hover:bg-bingo-purple px-6 py-3 rounded-lg font-bold transition-colors">
+              Play Bingo
+            </a>
+          </div>
+        </div>
+
+        <!-- Slots -->
+        <div class="game-card group relative overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-br from-yellow-600/20 to-red-600/20"></div>
+          <div class="relative z-10 text-center h-full flex flex-col">
+            <div class="text-6xl mb-4 group-hover:animate-spin-slow">🎰</div>
+            <h3 class="text-2xl font-bold mb-3 text-bingo-gold">Slot Machines</h3>
+            <p class="text-white/80 mb-4 flex-grow">Spin the reels on our collection of exciting slots with progressive jackpots</p>
+            <div class="bg-black/30 rounded-lg p-3 mb-4">
+              <div class="flex justify-between text-sm mb-1">
+                <span>Progressive Jackpot:</span>
+                <span class="text-bingo-gold font-bold">$1.2M</span>
+              </div>
+              <div class="flex justify-between text-sm">
+                <span>RTP:</span>
+                <span class="text-bingo-gold font-bold">96.5%</span>
+              </div>
+            </div>
+            <a href="/slots" class="bg-bingo-pink hover:bg-bingo-purple px-6 py-3 rounded-lg font-bold transition-colors">
+              Play Slots
+            </a>
+          </div>
+        </div>
+
+        <!-- Roulette -->
+        <div class="game-card group relative overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-br from-green-600/20 to-red-600/20"></div>
+          <div class="relative z-10 text-center h-full flex flex-col">
+            <div class="text-6xl mb-4 group-hover:animate-spin">🎯</div>
+            <h3 class="text-2xl font-bold mb-3 text-bingo-gold">European Roulette</h3>
+            <p class="text-white/80 mb-4 flex-grow">Experience the classic casino game with authentic wheel physics and betting</p>
+            <div class="bg-black/30 rounded-lg p-3 mb-4">
+              <div class="flex justify-between text-sm mb-1">
+                <span>Active Tables:</span>
+                <span class="text-bingo-gold font-bold">12</span>
+              </div>
+              <div class="flex justify-between text-sm">
+                <span>House Edge:</span>
+                <span class="text-bingo-gold font-bold">2.7%</span>
+              </div>
+            </div>
+            <a href="/roulette" class="bg-bingo-pink hover:bg-bingo-purple px-6 py-3 rounded-lg font-bold transition-colors">
+              Play Roulette
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Game Categories -->
+    <section class="mb-12">
+      <h2 class="text-4xl font-bold text-white mb-8 text-center font-fancy">Game Categories</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 text-center hover:bg-white/20 transition-all duration-300 cursor-pointer">
+          <div class="text-4xl mb-4">🎰</div>
+          <h3 class="text-xl font-bold text-bingo-gold mb-2">Slots</h3>
+          <p class="text-white/80 text-sm mb-3">Classic & Video Slots</p>
+          <div class="text-2xl font-bold text-white">25+</div>
+        </div>
+
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 text-center hover:bg-white/20 transition-all duration-300 cursor-pointer">
+          <div class="text-4xl mb-4">🃏</div>
+          <h3 class="text-xl font-bold text-bingo-gold mb-2">Table Games</h3>
+          <p class="text-white/80 text-sm mb-3">Blackjack, Poker & More</p>
+          <div class="text-2xl font-bold text-white">15+</div>
+        </div>
+
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 text-center hover:bg-white/20 transition-all duration-300 cursor-pointer">
+          <div class="text-4xl mb-4">🎱</div>
+          <h3 class="text-xl font-bold text-bingo-gold mb-2">Bingo</h3>
+          <p class="text-white/80 text-sm mb-3">75-Ball & 90-Ball</p>
+          <div class="text-2xl font-bold text-white">8+</div>
+        </div>
+
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 text-center hover:bg-white/20 transition-all duration-300 cursor-pointer">
+          <div class="text-4xl mb-4">👨‍💼</div>
+          <h3 class="text-xl font-bold text-bingo-gold mb-2">Live Dealers</h3>
+          <p class="text-white/80 text-sm mb-3">Real-time Gaming</p>
+          <div class="text-2xl font-bold text-white">24/7</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Promotions -->
+    <section class="mb-12">
+      <h2 class="text-4xl font-bold text-white mb-8 text-center font-fancy">Current Promotions</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        
+        <div class="bg-gradient-to-r from-purple-600/20 to-pink-600/20 backdrop-blur-sm rounded-xl p-8 border border-white/20">
+          <div class="flex items-center mb-4">
+            <div class="text-4xl mr-4">🎁</div>
+            <div>
+              <h3 class="text-2xl font-bold text-bingo-gold">Welcome Bonus</h3>
+              <p class="text-white/80">New players only</p>
+            </div>
+          </div>
+          <div class="text-3xl font-bold text-white mb-2">200% Match</div>
+          <p class="text-white/80 mb-4">Up to $1,000 bonus + 100 free spins</p>
+          <button class="bg-bingo-pink hover:bg-bingo-purple px-6 py-3 rounded-lg font-bold transition-colors">
+            Claim Bonus
+          </button>
+        </div>
+
+        <div class="bg-gradient-to-r from-blue-600/20 to-green-600/20 backdrop-blur-sm rounded-xl p-8 border border-white/20">
+          <div class="flex items-center mb-4">
+            <div class="text-4xl mr-4">🏆</div>
+            <div>
+              <h3 class="text-2xl font-bold text-bingo-gold">Daily Tournaments</h3>
+              <p class="text-white/80">Compete for prizes</p>
+            </div>
+          </div>
+          <div class="text-3xl font-bold text-white mb-2">$50,000</div>
+          <p class="text-white/80 mb-4">Total prize pool every day</p>
+          <button class="bg-bingo-pink hover:bg-bingo-purple px-6 py-3 rounded-lg font-bold transition-colors">
+            Join Tournament
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recent Winners -->
+    <section class="mb-12">
+      <h2 class="text-4xl font-bold text-white mb-8 text-center font-fancy">Recent Big Winners</h2>
+      <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+        <div class="space-y-4">
+          
+          <div class="flex items-center justify-between p-4 bg-black/20 rounded-lg">
+            <div class="flex items-center">
+              <div class="text-2xl mr-4">🎰</div>
+              <div>
+                <div class="font-bold text-white">Player*** won</div>
+                <div class="text-sm text-white/60">Mega Fortune Slots</div>
+              </div>
+            </div>
+            <div class="text-right">
+              <div class="text-2xl font-bold text-bingo-gold">$45,230</div>
+              <div class="text-sm text-white/60">2 hours ago</div>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between p-4 bg-black/20 rounded-lg">
+            <div class="flex items-center">
+              <div class="text-2xl mr-4">🎱</div>
+              <div>
+                <div class="font-bold text-white">BingoKing*** won</div>
+                <div class="text-sm text-white/60">90-Ball Bingo</div>
+              </div>
+            </div>
+            <div class="text-right">
+              <div class="text-2xl font-bold text-bingo-gold">$12,500</div>
+              <div class="text-sm text-white/60">4 hours ago</div>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between p-4 bg-black/20 rounded-lg">
+            <div class="flex items-center">
+              <div class="text-2xl mr-4">🎯</div>
+              <div>
+                <div class="font-bold text-white">RouletteQueen*** won</div>
+                <div class="text-sm text-white/60">European Roulette</div>
+              </div>
+            </div>
+            <div class="text-right">
+              <div class="text-2xl font-bold text-bingo-gold">$8,750</div>
+              <div class="text-sm text-white/60">6 hours ago</div>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between p-4 bg-black/20 rounded-lg">
+            <div class="flex items-center">
+              <div class="text-2xl mr-4">🃏</div>
+              <div>
+                <div class="font-bold text-white">CardShark*** won</div>
+                <div class="text-sm text-white/60">Live Blackjack</div>
+              </div>
+            </div>
+            <div class="text-right">
+              <div class="text-2xl font-bold text-bingo-gold">$6,340</div>
+              <div class="text-sm text-white/60">8 hours ago</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIP Program -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-r from-gold-600/20 to-yellow-600/20 backdrop-blur-sm rounded-xl p-8 border border-white/20 text-center">
+        <div class="text-6xl mb-6">👑</div>
+        <h2 class="text-4xl font-bold text-bingo-gold mb-4 font-fancy">VIP Rewards Program</h2>
+        <p class="text-xl text-white/80 mb-6">Exclusive benefits for our most valued players</p>
+        <div class="grid md:grid-cols-4 gap-6 mb-8">
+          <div>
+            <div class="text-2xl font-bold text-white mb-2">💰</div>
+            <h3 class="font-bold text-bingo-gold">Higher Limits</h3>
+            <p class="text-sm text-white/60">Exclusive high-roller tables</p>
+          </div>
+          <div>
+            <div class="text-2xl font-bold text-white mb-2">🎁</div>
+            <h3 class="font-bold text-bingo-gold">Bonus Rewards</h3>
+            <p class="text-sm text-white/60">Weekly cashback & bonuses</p>
+          </div>
+          <div>
+            <div class="text-2xl font-bold text-white mb-2">⚡</div>
+            <h3 class="font-bold text-bingo-gold">Fast Withdrawals</h3>
+            <p class="text-sm text-white/60">Priority processing</p>
+          </div>
+          <div>
+            <div class="text-2xl font-bold text-white mb-2">👨‍💼</div>
+            <h3 class="font-bold text-bingo-gold">Account Manager</h3>
+            <p class="text-sm text-white/60">Personal support</p>
+          </div>
+        </div>
+        <button class="bg-bingo-gold hover:bg-yellow-600 text-black px-8 py-4 rounded-lg font-bold text-lg transition-colors">
+          Join VIP Program
+        </button>
+      </div>
+    </section>
+
+    <!-- Responsible Gaming -->
+    <section>
+      <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 text-center">
+        <div class="text-4xl mb-4">🛡️</div>
+        <h2 class="text-2xl font-bold text-white mb-4">Responsible Gaming</h2>
+        <p class="text-white/80 mb-4">We are committed to promoting responsible gambling. Set limits, take breaks, and play within your means.</p>
+        <div class="flex flex-wrap justify-center space-x-4 space-y-2">
+          <button class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded transition-colors">
+            Set Limits
+          </button>
+          <button class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded transition-colors">
+            Self-Exclusion
+          </button>
+          <button class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded transition-colors">
+            Get Help
+          </button>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<script>
+  // Add dynamic elements
+  document.addEventListener('DOMContentLoaded', () => {
+    // Animate prize amounts
+    function animateNumbers() {
+      const elements = [
+        { id: 'jackpot-amount', target: 1234567, prefix: '$', suffix: '' },
+        { id: 'players-online', target: 3247, prefix: '', suffix: '' }
+      ];
+      
+      elements.forEach(({ id, target, prefix, suffix }) => {
+        const element = document.getElementById(id);
+        if (!element) return;
+        
+        let current = 0;
+        const increment = target / 100;
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            current = target;
+            clearInterval(timer);
+          }
+          element.textContent = prefix + Math.floor(current).toLocaleString() + suffix;
+        }, 20);
+      });
+    }
+    
+    // Add hover effects to game cards
+    const gameCards = document.querySelectorAll('.game-card');
+    gameCards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-10px) scale(1.02)';
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(0) scale(1)';
+      });
+    });
+    
+    // Simulate live updates for recent winners
+    function updateWinners() {
+      const winners = [
+        { name: 'Player***', game: 'Mega Fortune Slots', amount: '$45,230', time: '2 hours ago', icon: '🎰' },
+        { name: 'BingoKing***', game: '90-Ball Bingo', amount: '$12,500', time: '4 hours ago', icon: '🎱' },
+        { name: 'RouletteQueen***', game: 'European Roulette', amount: '$8,750', time: '6 hours ago', icon: '🎯' },
+        { name: 'CardShark***', game: 'Live Blackjack', amount: '$6,340', time: '8 hours ago', icon: '🃏' }
+      ];
+      
+      // Randomly update amounts slightly to simulate live updates
+      setTimeout(() => {
+        const randomWinner = Math.floor(Math.random() * winners.length);
+        const baseAmount = parseInt(winners[randomWinner].amount.replace('$', '').replace(',', ''));
+        const newAmount = baseAmount + Math.floor(Math.random() * 1000);
+        winners[randomWinner].amount = '$' + newAmount.toLocaleString();
+        
+        // Update the display (in a real app, this would come from the server)
+        updateWinners();
+      }, 30000); // Update every 30 seconds
+    }
+    
+    updateWinners();
+  });
+</script>
