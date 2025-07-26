@@ -1,0 +1,384 @@
+---
+import Layout from '../components/Layout.astro';
+---
+
+<Layout title="AI Code Editor - Write Better Code Faster">
+  <div class="h-screen pt-16 flex flex-col bg-background">
+    <!-- Editor Header -->
+    <div class="flex items-center justify-between p-4 border-b bg-card">
+      <div class="flex items-center space-x-4">
+        <div class="flex items-center space-x-2">
+          <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+          <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+          <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+        </div>
+        <div class="flex items-center space-x-2">
+          <span class="text-sm text-muted-foreground">main.js</span>
+          <div class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+        </div>
+      </div>
+      
+      <div class="flex items-center space-x-4">
+        <!-- Language Selector -->
+        <select id="language-selector" class="px-3 py-2 rounded-md bg-background border text-sm">
+          <option value="javascript">JavaScript</option>
+          <option value="typescript">TypeScript</option>
+          <option value="python">Python</option>
+          <option value="go">Go</option>
+          <option value="rust">Rust</option>
+          <option value="java">Java</option>
+          <option value="cpp">C++</option>
+          <option value="csharp">C#</option>
+        </select>
+        
+        <!-- Theme Selector -->
+        <select id="theme-selector" class="px-3 py-2 rounded-md bg-background border text-sm">
+          <option value="vs-dark">Dark</option>
+          <option value="vs">Light</option>
+          <option value="hc-black">High Contrast</option>
+        </select>
+        
+        <!-- Run Button -->
+        <button id="run-code" class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors flex items-center space-x-2">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path>
+          </svg>
+          <span>Run</span>
+        </button>
+        
+        <!-- Share Button -->
+        <button id="share-code" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors flex items-center space-x-2">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z"></path>
+          </svg>
+          <span>Share</span>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Main Editor Area -->
+    <div class="flex-1 flex">
+      <!-- File Explorer -->
+      <div class="w-64 bg-muted/50 border-r">
+        <div class="p-4">
+          <h3 class="font-semibold mb-4 flex items-center">
+            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"></path>
+            </svg>
+            Explorer
+          </h3>
+          <div class="space-y-2">
+            <div class="flex items-center space-x-2 p-2 rounded hover:bg-muted cursor-pointer">
+              <svg class="w-4 h-4 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-sm">main.js</span>
+            </div>
+            <div class="flex items-center space-x-2 p-2 rounded hover:bg-muted cursor-pointer">
+              <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-sm">utils.js</span>
+            </div>
+            <div class="flex items-center space-x-2 p-2 rounded hover:bg-muted cursor-pointer">
+              <svg class="w-4 h-4 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-sm">package.json</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Editor Container -->
+      <div class="flex-1 flex flex-col">
+        <div id="editor-container" class="flex-1"></div>
+        
+        <!-- Output Panel -->
+        <div class="h-48 bg-card border-t">
+          <div class="flex items-center justify-between p-3 border-b bg-muted/50">
+            <div class="flex items-center space-x-4">
+              <button class="text-sm font-medium text-primary border-b-2 border-primary pb-1">Output</button>
+              <button class="text-sm text-muted-foreground hover:text-foreground">Problems</button>
+              <button class="text-sm text-muted-foreground hover:text-foreground">Terminal</button>
+            </div>
+            <button class="p-1 hover:bg-muted rounded">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+              </svg>
+            </button>
+          </div>
+          <div id="output-content" class="p-4 font-mono text-sm overflow-auto h-full">
+            <div class="text-muted-foreground">Ready to run your code...</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- AI Assistant Panel -->
+      <div class="w-80 bg-card border-l">
+        <div class="p-4 border-b">
+          <h3 class="font-semibold flex items-center">
+            <div class="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mr-2">
+              <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            AI Assistant
+          </h3>
+        </div>
+        
+        <div class="flex-1 flex flex-col h-full">
+          <!-- Chat Messages -->
+          <div id="chat-messages" class="flex-1 p-4 space-y-4 overflow-auto">
+            <div class="flex items-start space-x-3">
+              <div class="w-6 h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+                <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div class="flex-1">
+                <div class="bg-muted rounded-lg p-3">
+                  <p class="text-sm">Hello! I'm your AI coding assistant. I can help you:</p>
+                  <ul class="text-sm mt-2 space-y-1">
+                    <li>• Generate code from descriptions</li>
+                    <li>• Debug and fix errors</li>
+                    <li>• Optimize performance</li>
+                    <li>• Explain complex concepts</li>
+                  </ul>
+                  <p class="text-sm mt-2">What would you like to build today?</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Quick Actions -->
+          <div class="p-4 border-t space-y-2">
+            <div class="text-xs font-medium text-muted-foreground mb-2">Quick Actions</div>
+            <button class="w-full text-left p-2 rounded hover:bg-muted transition-colors text-sm">
+              🚀 Generate a React component
+            </button>
+            <button class="w-full text-left p-2 rounded hover:bg-muted transition-colors text-sm">
+              🐛 Find and fix bugs
+            </button>
+            <button class="w-full text-left p-2 rounded hover:bg-muted transition-colors text-sm">
+              ⚡ Optimize this code
+            </button>
+            <button class="w-full text-left p-2 rounded hover:bg-muted transition-colors text-sm">
+              📝 Add documentation
+            </button>
+          </div>
+          
+          <!-- Chat Input -->
+          <div class="p-4 border-t">
+            <div class="flex space-x-2">
+              <input 
+                id="chat-input" 
+                type="text" 
+                placeholder="Ask me anything..." 
+                class="flex-1 px-3 py-2 rounded-md bg-background border text-sm"
+              />
+              <button id="send-message" class="px-3 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  #editor-container {
+    height: 100%;
+  }
+</style>
+
+<script>
+  import * as monaco from 'monaco-editor';
+
+  // Initialize Monaco Editor
+  let editor;
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    // Monaco Editor configuration
+    editor = monaco.editor.create(document.getElementById('editor-container'), {
+      value: `// Welcome to the AI Code Editor!
+// Try typing some code and ask the AI for help.
+
+function fibonacci(n) {
+  if (n <= 1) return n;
+  return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+// TODO: Ask AI to optimize this function
+console.log('Fibonacci sequence:');
+for (let i = 0; i < 10; i++) {
+  console.log(\`F(\${i}) = \${fibonacci(i)}\`);
+}`,
+      language: 'javascript',
+      theme: 'vs-dark',
+      fontSize: 14,
+      automaticLayout: true,
+      minimap: { enabled: true },
+      scrollBeyondLastLine: false,
+      wordWrap: 'on',
+      lineNumbers: 'on',
+      renderWhitespace: 'selection',
+      contextmenu: true,
+      mouseWheelZoom: true,
+      quickSuggestions: {
+        other: true,
+        comments: true,
+        strings: true
+      },
+      suggestOnTriggerCharacters: true,
+      acceptSuggestionOnEnter: 'on',
+      tabCompletion: 'on',
+      wordBasedSuggestions: true,
+      parameterHints: { enabled: true },
+      autoClosingBrackets: 'always',
+      autoClosingQuotes: 'always',
+      formatOnType: true,
+      formatOnPaste: true
+    });
+
+    // Language selector
+    document.getElementById('language-selector').addEventListener('change', function(e) {
+      monaco.editor.setModelLanguage(editor.getModel(), e.target.value);
+    });
+
+    // Theme selector
+    document.getElementById('theme-selector').addEventListener('change', function(e) {
+      monaco.editor.setTheme(e.target.value);
+    });
+
+    // Run code button
+    document.getElementById('run-code').addEventListener('click', function() {
+      const code = editor.getValue();
+      const outputElement = document.getElementById('output-content');
+      
+      try {
+        // Clear previous output
+        outputElement.innerHTML = '<div class="text-green-600">Running code...</div>';
+        
+        // Simulate code execution (in a real app, this would send to a backend)
+        setTimeout(() => {
+          outputElement.innerHTML = `
+            <div class="text-green-600 mb-2">✓ Code executed successfully</div>
+            <div class="text-muted-foreground">Output:</div>
+            <div class="mt-1">
+              <div>Fibonacci sequence:</div>
+              <div>F(0) = 0</div>
+              <div>F(1) = 1</div>
+              <div>F(2) = 1</div>
+              <div>F(3) = 2</div>
+              <div>F(4) = 3</div>
+              <div>F(5) = 5</div>
+              <div>F(6) = 8</div>
+              <div>F(7) = 13</div>
+              <div>F(8) = 21</div>
+              <div>F(9) = 34</div>
+            </div>
+          `;
+        }, 1000);
+      } catch (error) {
+        outputElement.innerHTML = `<div class="text-red-600">Error: ${error.message}</div>`;
+      }
+    });
+
+    // Share code button
+    document.getElementById('share-code').addEventListener('click', function() {
+      const code = editor.getValue();
+      // In a real app, this would generate a shareable link
+      navigator.clipboard.writeText(window.location.href + '?code=' + encodeURIComponent(code));
+      
+      // Show toast notification
+      const toast = document.createElement('div');
+      toast.className = 'fixed top-4 right-4 bg-green-600 text-white px-4 py-2 rounded-md shadow-lg z-50';
+      toast.textContent = 'Share link copied to clipboard!';
+      document.body.appendChild(toast);
+      
+      setTimeout(() => {
+        document.body.removeChild(toast);
+      }, 3000);
+    });
+
+    // AI Chat functionality
+    const chatMessages = document.getElementById('chat-messages');
+    const chatInput = document.getElementById('chat-input');
+    const sendButton = document.getElementById('send-message');
+
+    function addMessage(content, isUser = false) {
+      const messageDiv = document.createElement('div');
+      messageDiv.className = 'flex items-start space-x-3';
+      
+      const avatar = isUser 
+        ? '<div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center"><span class="text-white text-xs">U</span></div>'
+        : '<div class="w-6 h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center"><svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"></path></svg></div>';
+      
+      messageDiv.innerHTML = `
+        ${avatar}
+        <div class="flex-1">
+          <div class="bg-muted rounded-lg p-3">
+            <p class="text-sm">${content}</p>
+          </div>
+        </div>
+      `;
+      
+      chatMessages.appendChild(messageDiv);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function sendMessage() {
+      const message = chatInput.value.trim();
+      if (!message) return;
+      
+      addMessage(message, true);
+      chatInput.value = '';
+      
+      // Simulate AI response
+      setTimeout(() => {
+        const responses = [
+          "I can help you optimize that fibonacci function! Would you like me to add memoization to improve performance?",
+          "Great code! I notice you're using recursion. For better performance with larger numbers, consider using dynamic programming.",
+          "I can generate tests for your functions, add error handling, or explain any part of the code. What would you like?",
+          "That's an interesting approach! Let me suggest some improvements and best practices for your code."
+        ];
+        const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+        addMessage(randomResponse);
+      }, 1000);
+    }
+
+    sendButton.addEventListener('click', sendMessage);
+    chatInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        sendMessage();
+      }
+    });
+
+    // Quick action buttons
+    document.querySelectorAll('[class*="Quick Actions"] button').forEach(button => {
+      button.addEventListener('click', function() {
+        const action = this.textContent.trim();
+        addMessage(`Help me with: ${action}`, true);
+        
+        setTimeout(() => {
+          let response = '';
+          if (action.includes('React')) {
+            response = "I'll generate a React component for you! What kind of component do you need?";
+          } else if (action.includes('bugs')) {
+            response = "I'm analyzing your code for potential bugs and issues. Let me check...";
+          } else if (action.includes('Optimize')) {
+            response = "I can optimize your fibonacci function using memoization. Here's an improved version:";
+          } else if (action.includes('documentation')) {
+            response = "I'll add comprehensive documentation to your code with JSDoc comments.";
+          }
+          addMessage(response);
+        }, 500);
+      });
+    });
+  });
+</script>

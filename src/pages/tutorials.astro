@@ -1,0 +1,492 @@
+---
+import Layout from '../components/Layout.astro';
+---
+
+<Layout title="AI-Powered Tutorials - Learn to Code with AI">
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden gradient-bg py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">
+          <span class="gradient-text">Learn to Code</span> with AI
+        </h1>
+        <p class="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+          Interactive tutorials powered by AI that adapt to your learning style. 
+          Get personalized feedback and guidance every step of the way.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#learning-paths" class="inline-flex items-center px-6 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-colors">
+            Start Learning
+          </a>
+          <a href="#challenges" class="inline-flex items-center px-6 py-3 rounded-lg border hover:bg-muted transition-colors">
+            Try a Challenge
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Learning Paths -->
+  <section id="learning-paths" class="py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Choose Your Learning Path</h2>
+        <p class="text-xl text-muted-foreground max-w-2xl mx-auto">
+          Structured learning paths designed by experts and powered by AI for personalized guidance.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- JavaScript Fundamentals -->
+        <div class="feature-card group cursor-pointer" data-path="javascript">
+          <div class="w-12 h-12 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-lg flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">JavaScript Fundamentals</h3>
+          <p class="text-muted-foreground mb-4">Master the basics of JavaScript with interactive exercises and real-world projects.</p>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-sm text-muted-foreground">12 lessons • 6 hours</span>
+            <span class="text-sm bg-green-100 text-green-700 px-2 py-1 rounded-full">Beginner</span>
+          </div>
+          <div class="w-full bg-muted rounded-full h-2 mb-4">
+            <div class="bg-gradient-to-r from-yellow-400 to-orange-500 h-2 rounded-full w-0 group-hover:w-1/4 transition-all duration-1000"></div>
+          </div>
+          <button class="w-full py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors">
+            Start Path
+          </button>
+        </div>
+
+        <!-- React Development -->
+        <div class="feature-card group cursor-pointer" data-path="react">
+          <div class="w-12 h-12 bg-gradient-to-r from-blue-400 to-cyan-500 rounded-lg flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="1"/>
+              <path d="M12 2c5.5 0 10 4.5 10 10s-4.5 10-10 10S2 17.5 2 12 6.5 2 12 2m0 2c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8z"/>
+              <path d="M12 5.5c1.3 0 2.4.2 3.4.6 1 .4 1.9 1 2.6 1.8.7.8 1.3 1.7 1.6 2.8.3 1.1.3 2.2 0 3.3-.3 1.1-.9 2-1.6 2.8-.7.8-1.6 1.4-2.6 1.8-1 .4-2.1.6-3.4.6s-2.4-.2-3.4-.6c-1-.4-1.9-1-2.6-1.8-.7-.8-1.3-1.7-1.6-2.8-.3-1.1-.3-2.2 0-3.3.3-1.1.9-2 1.6-2.8.7-.8 1.6-1.4 2.6-1.8 1-.4 2.1-.6 3.4-.6z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">React Development</h3>
+          <p class="text-muted-foreground mb-4">Build modern web applications with React hooks, state management, and best practices.</p>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-sm text-muted-foreground">16 lessons • 10 hours</span>
+            <span class="text-sm bg-blue-100 text-blue-700 px-2 py-1 rounded-full">Intermediate</span>
+          </div>
+          <div class="w-full bg-muted rounded-full h-2 mb-4">
+            <div class="bg-gradient-to-r from-blue-400 to-cyan-500 h-2 rounded-full w-0 group-hover:w-1/3 transition-all duration-1000"></div>
+          </div>
+          <button class="w-full py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors">
+            Start Path
+          </button>
+        </div>
+
+        <!-- Python AI/ML -->
+        <div class="feature-card group cursor-pointer" data-path="python-ai">
+          <div class="w-12 h-12 bg-gradient-to-r from-green-400 to-blue-500 rounded-lg flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 0C8.74 0 6.8 1.29 6.8 3.64v4.18c0 1.24.65 1.93 1.93 1.93h6.54c1.24 0 1.93-.65 1.93-1.93V3.64C17.2 1.29 15.26 0 12 0zM9.36 2.18c.48 0 .86.39.86.86s-.39.86-.86.86-.86-.39-.86-.86.39-.86.86-.86z"/>
+              <path d="M12 24c3.26 0 5.2-1.29 5.2-3.64v-4.18c0-1.24-.65-1.93-1.93-1.93H8.73c-1.24 0-1.93.65-1.93 1.93v4.18C6.8 22.71 8.74 24 12 24zm2.64-2.18c-.48 0-.86-.39-.86-.86s.39-.86.86-.86.86.39.86.86-.39.86-.86.86z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Python AI & ML</h3>
+          <p class="text-muted-foreground mb-4">Dive into artificial intelligence and machine learning with Python, TensorFlow, and scikit-learn.</p>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-sm text-muted-foreground">20 lessons • 15 hours</span>
+            <span class="text-sm bg-purple-100 text-purple-700 px-2 py-1 rounded-full">Advanced</span>
+          </div>
+          <div class="w-full bg-muted rounded-full h-2 mb-4">
+            <div class="bg-gradient-to-r from-green-400 to-blue-500 h-2 rounded-full w-0 group-hover:w-1/2 transition-all duration-1000"></div>
+          </div>
+          <button class="w-full py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors">
+            Start Path
+          </button>
+        </div>
+
+        <!-- Node.js Backend -->
+        <div class="feature-card group cursor-pointer" data-path="nodejs">
+          <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 1.85c-.27 0-.55.07-.78.2l-7.44 4.3c-.48.28-.78.8-.78 1.36v8.58c0 .56.3 1.08.78 1.36l7.44 4.3c.46.26 1.04.26 1.5 0l7.44-4.3c.48-.28.78-.8.78-1.36V7.71c0-.56-.3-1.08-.78-1.36l-7.44-4.3c-.23-.13-.51-.2-.78-.2zm0 2.03L18.5 8 12 12.12 5.5 8 12 3.88zm1 15.22v-6.2L18.5 9.5v8.5l-5.5 3.1zm-2 0L5.5 18V9.5L11 12.9v6.2z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Node.js Backend</h3>
+          <p class="text-muted-foreground mb-4">Create scalable server-side applications with Node.js, Express, and database integration.</p>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-sm text-muted-foreground">14 lessons • 8 hours</span>
+            <span class="text-sm bg-blue-100 text-blue-700 px-2 py-1 rounded-full">Intermediate</span>
+          </div>
+          <div class="w-full bg-muted rounded-full h-2 mb-4">
+            <div class="bg-gradient-to-r from-green-500 to-emerald-500 h-2 rounded-full w-0 group-hover:w-1/4 transition-all duration-1000"></div>
+          </div>
+          <button class="w-full py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors">
+            Start Path
+          </button>
+        </div>
+
+        <!-- Data Structures -->
+        <div class="feature-card group cursor-pointer" data-path="algorithms">
+          <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M6 2l3 3-3 3-3-3 3-3zm12 0l3 3-3 3-3-3 3-3zM6 10l3 3-3 3-3-3 3-3zm6-2l3 3-3 3-3-3 3-3zm6 2l3 3-3 3-3-3 3-3zM6 18l3 3-3 3-3-3 3-3zm6 0l3 3-3 3-3-3 3-3zm6 0l3 3-3 3-3-3 3-3z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Data Structures & Algorithms</h3>
+          <p class="text-muted-foreground mb-4">Master computer science fundamentals with interactive visualizations and coding challenges.</p>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-sm text-muted-foreground">18 lessons • 12 hours</span>
+            <span class="text-sm bg-purple-100 text-purple-700 px-2 py-1 rounded-full">Advanced</span>
+          </div>
+          <div class="w-full bg-muted rounded-full h-2 mb-4">
+            <div class="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full w-0 group-hover:w-1/5 transition-all duration-1000"></div>
+          </div>
+          <button class="w-full py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors">
+            Start Path
+          </button>
+        </div>
+
+        <!-- DevOps & Cloud -->
+        <div class="feature-card group cursor-pointer" data-path="devops">
+          <div class="w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M5.5 16a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 16h-8zm6.5-6a2 2 0 100-4 2 2 0 000 4z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">DevOps & Cloud</h3>
+          <p class="text-muted-foreground mb-4">Learn containerization, CI/CD, and cloud deployment with Docker, Kubernetes, and AWS.</p>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-sm text-muted-foreground">15 lessons • 10 hours</span>
+            <span class="text-sm bg-purple-100 text-purple-700 px-2 py-1 rounded-full">Advanced</span>
+          </div>
+          <div class="w-full bg-muted rounded-full h-2 mb-4">
+            <div class="bg-gradient-to-r from-indigo-500 to-purple-500 h-2 rounded-full w-0 group-hover:w-1/6 transition-all duration-1000"></div>
+          </div>
+          <button class="w-full py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors">
+            Start Path
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Challenge Section -->
+  <section id="challenges" class="py-24 bg-muted/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Try an Interactive Challenge</h2>
+        <p class="text-xl text-muted-foreground max-w-2xl mx-auto">
+          Test your skills with real coding challenges. Get instant AI feedback and hints.
+        </p>
+      </div>
+      
+      <div class="max-w-4xl mx-auto">
+        <div class="bg-card rounded-xl border shadow-lg overflow-hidden">
+          <!-- Challenge Header -->
+          <div class="bg-gradient-to-r from-blue-600 to-purple-600 p-6 text-white">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-xl font-semibold">Challenge: Array Sum</h3>
+              <span class="bg-white/20 px-3 py-1 rounded-full text-sm">Easy</span>
+            </div>
+            <p class="text-blue-100">
+              Write a function that takes an array of numbers and returns the sum of all elements.
+            </p>
+          </div>
+          
+          <!-- Challenge Content -->
+          <div class="grid grid-cols-1 lg:grid-cols-2">
+            <!-- Instructions -->
+            <div class="p-6 border-r">
+              <h4 class="font-semibold mb-4">Instructions</h4>
+              <div class="space-y-4 text-sm">
+                <div>
+                  <strong>Function signature:</strong>
+                  <div class="code-block mt-2">
+                    <code>function arraySum(numbers) {<br>
+                    &nbsp;&nbsp;// Your code here<br>
+                    }</code>
+                  </div>
+                </div>
+                
+                <div>
+                  <strong>Examples:</strong>
+                  <div class="code-block mt-2">
+                    <code>arraySum([1, 2, 3, 4]) → 10<br>
+                    arraySum([]) → 0<br>
+                    arraySum([-1, 1]) → 0</code>
+                  </div>
+                </div>
+                
+                <div>
+                  <strong>Constraints:</strong>
+                  <ul class="list-disc list-inside space-y-1 text-muted-foreground">
+                    <li>Array length: 0 ≤ n ≤ 1000</li>
+                    <li>Element values: -1000 ≤ x ≤ 1000</li>
+                  </ul>
+                </div>
+              </div>
+              
+              <!-- AI Hints -->
+              <div class="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                <div class="flex items-center mb-2">
+                  <svg class="w-4 h-4 text-blue-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+                  </svg>
+                  <span class="font-medium text-blue-700 dark:text-blue-300">AI Hint</span>
+                </div>
+                <p class="text-sm text-blue-600 dark:text-blue-400">
+                  Try using a loop to iterate through the array, or consider using built-in array methods like <code>reduce()</code>.
+                </p>
+              </div>
+            </div>
+            
+            <!-- Code Editor -->
+            <div class="p-6">
+              <div class="mb-4">
+                <div class="flex items-center justify-between mb-2">
+                  <h4 class="font-semibold">Your Solution</h4>
+                  <button id="run-tests" class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors text-sm">
+                    Run Tests
+                  </button>
+                </div>
+                <div class="border rounded-lg overflow-hidden">
+                  <div class="bg-muted/50 px-3 py-2 text-sm text-muted-foreground">JavaScript</div>
+                  <textarea 
+                    id="challenge-code" 
+                    class="w-full p-4 font-mono text-sm resize-none border-0 focus:outline-none bg-background"
+                    rows="12"
+                    placeholder="function arraySum(numbers) {
+  // Your code here
+}"
+                  ></textarea>
+                </div>
+              </div>
+              
+              <!-- Test Results -->
+              <div id="test-results" class="space-y-2">
+                <div class="text-sm text-muted-foreground">Run tests to see results...</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Action Buttons -->
+          <div class="p-6 border-t bg-muted/50 flex justify-between">
+            <button id="get-hint" class="px-4 py-2 border rounded-lg hover:bg-background transition-colors">
+              Get AI Hint
+            </button>
+            <div class="space-x-2">
+              <button id="reset-code" class="px-4 py-2 border rounded-lg hover:bg-background transition-colors">
+                Reset
+              </button>
+              <button id="submit-solution" class="px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors">
+                Submit Solution
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Progress Tracking -->
+  <section class="py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Track Your Progress</h2>
+        <p class="text-xl text-muted-foreground max-w-2xl mx-auto">
+          See your learning journey with detailed analytics and AI-powered insights.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Skill Level -->
+        <div class="bg-card p-6 rounded-lg border">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-semibold">Overall Skill Level</h3>
+            <span class="text-2xl">📊</span>
+          </div>
+          <div class="text-3xl font-bold gradient-text mb-2">Intermediate</div>
+          <p class="text-sm text-muted-foreground mb-4">Based on completed tutorials and challenges</p>
+          <div class="w-full bg-muted rounded-full h-2">
+            <div class="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full w-3/5"></div>
+          </div>
+        </div>
+        
+        <!-- Learning Streak -->
+        <div class="bg-card p-6 rounded-lg border">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-semibold">Learning Streak</h3>
+            <span class="text-2xl">🔥</span>
+          </div>
+          <div class="text-3xl font-bold gradient-text mb-2">7 days</div>
+          <p class="text-sm text-muted-foreground mb-4">Keep it up! You're on fire!</p>
+          <div class="flex space-x-1">
+            {Array.from({length: 7}, (_, i) => (
+              <div key={i} class="w-4 h-4 bg-orange-500 rounded-full"></div>
+            ))}
+          </div>
+        </div>
+        
+        <!-- Achievements -->
+        <div class="bg-card p-6 rounded-lg border">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-semibold">Recent Achievements</h3>
+            <span class="text-2xl">🏆</span>
+          </div>
+          <div class="space-y-3">
+            <div class="flex items-center space-x-3">
+              <div class="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center">
+                <span class="text-xs">🥇</span>
+              </div>
+              <div>
+                <div class="font-medium text-sm">First Challenge</div>
+                <div class="text-xs text-muted-foreground">Completed your first coding challenge</div>
+              </div>
+            </div>
+            <div class="flex items-center space-x-3">
+              <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                <span class="text-xs">📚</span>
+              </div>
+              <div>
+                <div class="font-medium text-sm">Tutorial Master</div>
+                <div class="text-xs text-muted-foreground">Completed 5 tutorials</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Challenge functionality
+    const codeTextarea = document.getElementById('challenge-code');
+    const runTestsBtn = document.getElementById('run-tests');
+    const testResults = document.getElementById('test-results');
+    const getHintBtn = document.getElementById('get-hint');
+    const resetBtn = document.getElementById('reset-code');
+    const submitBtn = document.getElementById('submit-solution');
+
+    // Test cases for the array sum challenge
+    const testCases = [
+      { input: [1, 2, 3, 4], expected: 10 },
+      { input: [], expected: 0 },
+      { input: [-1, 1], expected: 0 },
+      { input: [5], expected: 5 },
+      { input: [-5, -3, -1], expected: -9 }
+    ];
+
+    function runTests() {
+      const code = codeTextarea.value;
+      testResults.innerHTML = '';
+
+      try {
+        // Create a function from the user's code
+        const userFunction = new Function('return ' + code)();
+        
+        let passedTests = 0;
+        testCases.forEach((testCase, index) => {
+          try {
+            const result = userFunction(testCase.input);
+            const passed = result === testCase.expected;
+            passedTests += passed ? 1 : 0;
+            
+            const testDiv = document.createElement('div');
+            testDiv.className = `p-3 rounded-lg text-sm ${passed ? 'bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400' : 'bg-red-100 text-red-800 dark:bg-red-900/20 dark:text-red-400'}`;
+            testDiv.innerHTML = `
+              <div class="flex items-center justify-between">
+                <span>${passed ? '✅' : '❌'} Test ${index + 1}</span>
+                <span>${passed ? 'PASS' : 'FAIL'}</span>
+              </div>
+              <div class="mt-1 text-xs">
+                Input: [${testCase.input.join(', ')}] → Expected: ${testCase.expected}, Got: ${result}
+              </div>
+            `;
+            testResults.appendChild(testDiv);
+          } catch (error) {
+            const testDiv = document.createElement('div');
+            testDiv.className = 'p-3 rounded-lg text-sm bg-red-100 text-red-800 dark:bg-red-900/20 dark:text-red-400';
+            testDiv.innerHTML = `
+              <div class="flex items-center justify-between">
+                <span>❌ Test ${index + 1}</span>
+                <span>ERROR</span>
+              </div>
+              <div class="mt-1 text-xs">Runtime error: ${error.message}</div>
+            `;
+            testResults.appendChild(testDiv);
+          }
+        });
+
+        // Show overall results
+        const overallDiv = document.createElement('div');
+        overallDiv.className = `p-3 rounded-lg text-sm font-medium ${passedTests === testCases.length ? 'bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400' : 'bg-orange-100 text-orange-800 dark:bg-orange-900/20 dark:text-orange-400'}`;
+        overallDiv.innerHTML = `
+          <div class="flex items-center justify-between">
+            <span>Overall Result</span>
+            <span>${passedTests}/${testCases.length} tests passed</span>
+          </div>
+        `;
+        testResults.appendChild(overallDiv);
+
+      } catch (error) {
+        testResults.innerHTML = `
+          <div class="p-3 rounded-lg text-sm bg-red-100 text-red-800 dark:bg-red-900/20 dark:text-red-400">
+            <div class="font-medium">Syntax Error</div>
+            <div class="mt-1 text-xs">${error.message}</div>
+          </div>
+        `;
+      }
+    }
+
+    function showHint() {
+      const hints = [
+        "You can use a for loop to iterate through each element in the array.",
+        "Try using the reduce() method: numbers.reduce((sum, num) => sum + num, 0)",
+        "Don't forget to handle the empty array case - it should return 0.",
+        "You can also use a while loop or forEach method to solve this problem."
+      ];
+      
+      const randomHint = hints[Math.floor(Math.random() * hints.length)];
+      
+      // Show hint in a modal or alert
+      alert(`AI Hint: ${randomHint}`);
+    }
+
+    function resetCode() {
+      codeTextarea.value = `function arraySum(numbers) {
+  // Your code here
+}`;
+      testResults.innerHTML = '<div class="text-sm text-muted-foreground">Run tests to see results...</div>';
+    }
+
+    function submitSolution() {
+      const code = codeTextarea.value;
+      if (!code.trim()) {
+        alert('Please write your solution first!');
+        return;
+      }
+      
+      // In a real app, this would submit to the backend
+      alert('Solution submitted! Great job on completing this challenge. 🎉');
+    }
+
+    // Event listeners
+    runTestsBtn.addEventListener('click', runTests);
+    getHintBtn.addEventListener('click', showHint);
+    resetBtn.addEventListener('click', resetCode);
+    submitBtn.addEventListener('click', submitSolution);
+
+    // Learning path interaction
+    document.querySelectorAll('[data-path]').forEach(card => {
+      card.addEventListener('click', function() {
+        const path = this.dataset.path;
+        // In a real app, this would navigate to the learning path
+        alert(`Starting ${path} learning path! This would redirect to the first lesson.`);
+      });
+    });
+
+    // Initialize with placeholder text
+    resetCode();
+  });
+</script>

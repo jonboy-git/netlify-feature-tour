@@ -1,0 +1,171 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+}
+
+const { title, description = "The Ultimate AI Coding Platform - Build, Learn, and Collaborate with AI", image = "/og-image.jpg" } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- SEO -->
+    <title>{title}</title>
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.url)} />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(image, Astro.url)} />
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin />
+  </head>
+  
+  <body class="min-h-screen bg-background font-sans antialiased">
+    <!-- Global Styles -->
+    <style>
+      @import '../styles/globals.css';
+    </style>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass border-b">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+          <div class="flex items-center">
+            <a href="/" class="flex items-center space-x-2">
+              <div class="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <span class="text-xl font-bold gradient-text">AI Coding</span>
+            </a>
+          </div>
+          
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="/features" class="text-muted-foreground hover:text-foreground transition-colors">Features</a>
+            <a href="/editor" class="text-muted-foreground hover:text-foreground transition-colors">Editor</a>
+            <a href="/tutorials" class="text-muted-foreground hover:text-foreground transition-colors">Tutorials</a>
+            <a href="/community" class="text-muted-foreground hover:text-foreground transition-colors">Community</a>
+            <a href="/pricing" class="text-muted-foreground hover:text-foreground transition-colors">Pricing</a>
+          </div>
+          
+          <div class="flex items-center space-x-4">
+            <button id="theme-toggle" class="p-2 rounded-lg hover:bg-muted transition-colors">
+              <svg class="w-5 h-5 dark:hidden" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+              </svg>
+              <svg class="w-5 h-5 hidden dark:block" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+              </svg>
+            </button>
+            <a href="/login" class="text-muted-foreground hover:text-foreground transition-colors">Login</a>
+            <a href="/signup" class="bg-primary text-primary-foreground px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors">
+              Get Started
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main class="pt-16">
+      <slot />
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-muted/50 border-t mt-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div>
+            <h3 class="font-semibold mb-4">Product</h3>
+            <ul class="space-y-2 text-sm text-muted-foreground">
+              <li><a href="/features" class="hover:text-foreground transition-colors">Features</a></li>
+              <li><a href="/editor" class="hover:text-foreground transition-colors">Code Editor</a></li>
+              <li><a href="/ai-assistant" class="hover:text-foreground transition-colors">AI Assistant</a></li>
+              <li><a href="/collaboration" class="hover:text-foreground transition-colors">Collaboration</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-4">Resources</h3>
+            <ul class="space-y-2 text-sm text-muted-foreground">
+              <li><a href="/tutorials" class="hover:text-foreground transition-colors">Tutorials</a></li>
+              <li><a href="/docs" class="hover:text-foreground transition-colors">Documentation</a></li>
+              <li><a href="/blog" class="hover:text-foreground transition-colors">Blog</a></li>
+              <li><a href="/changelog" class="hover:text-foreground transition-colors">Changelog</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-4">Community</h3>
+            <ul class="space-y-2 text-sm text-muted-foreground">
+              <li><a href="/discord" class="hover:text-foreground transition-colors">Discord</a></li>
+              <li><a href="/github" class="hover:text-foreground transition-colors">GitHub</a></li>
+              <li><a href="/twitter" class="hover:text-foreground transition-colors">Twitter</a></li>
+              <li><a href="/reddit" class="hover:text-foreground transition-colors">Reddit</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-4">Company</h3>
+            <ul class="space-y-2 text-sm text-muted-foreground">
+              <li><a href="/about" class="hover:text-foreground transition-colors">About</a></li>
+              <li><a href="/careers" class="hover:text-foreground transition-colors">Careers</a></li>
+              <li><a href="/contact" class="hover:text-foreground transition-colors">Contact</a></li>
+              <li><a href="/privacy" class="hover:text-foreground transition-colors">Privacy</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <p class="text-sm text-muted-foreground">
+            © 2024 AI Coding Site. All rights reserved.
+          </p>
+          <div class="flex items-center space-x-4 mt-4 md:mt-0">
+            <a href="/terms" class="text-sm text-muted-foreground hover:text-foreground transition-colors">Terms</a>
+            <a href="/privacy" class="text-sm text-muted-foreground hover:text-foreground transition-colors">Privacy</a>
+            <a href="/cookies" class="text-sm text-muted-foreground hover:text-foreground transition-colors">Cookies</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <!-- Theme Toggle Script -->
+    <script>
+      function initTheme() {
+        const theme = localStorage.getItem('theme') || 'light';
+        document.documentElement.classList.toggle('dark', theme === 'dark');
+      }
+      
+      function toggleTheme() {
+        const isDark = document.documentElement.classList.contains('dark');
+        const newTheme = isDark ? 'light' : 'dark';
+        document.documentElement.classList.toggle('dark', newTheme === 'dark');
+        localStorage.setItem('theme', newTheme);
+      }
+      
+      // Initialize theme on page load
+      initTheme();
+      
+      // Add event listener to theme toggle
+      document.getElementById('theme-toggle')?.addEventListener('click', toggleTheme);
+    </script>
+  </body>
+</html>

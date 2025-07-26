@@ -1,0 +1,456 @@
+---
+import Layout from '../components/Layout.astro';
+---
+
+<Layout title="Pricing - AI Coding Site">
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden gradient-bg py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">
+        Choose Your <span class="gradient-text">AI Coding</span> Plan
+      </h1>
+      <p class="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+        Start for free and scale as you grow. All plans include our core AI features with increasing limits and capabilities.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+        <div class="flex items-center bg-card border rounded-lg p-1">
+          <button id="monthly-tab" class="px-4 py-2 rounded-md bg-primary text-primary-foreground text-sm font-medium">
+            Monthly
+          </button>
+          <button id="yearly-tab" class="px-4 py-2 rounded-md text-sm font-medium text-muted-foreground">
+            Yearly
+          </button>
+        </div>
+        <div class="inline-flex items-center px-3 py-2 bg-green-100 text-green-700 rounded-lg text-sm">
+          <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+          Save 20% with yearly billing
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Cards -->
+  <section class="py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+        
+        <!-- Free Plan -->
+        <div class="bg-card rounded-xl border p-8 relative">
+          <div class="text-center mb-8">
+            <h3 class="text-2xl font-bold mb-2">Free</h3>
+            <p class="text-muted-foreground mb-4">Perfect for getting started</p>
+            <div class="text-4xl font-bold mb-2">
+              <span class="monthly-price">$0</span>
+              <span class="yearly-price hidden">$0</span>
+            </div>
+            <p class="text-sm text-muted-foreground">Forever free</p>
+          </div>
+          
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center">
+              <svg class="w-4 h-4 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-sm">5 AI-generated code snippets/day</span>
+            </li>
+            <li class="flex items-center">
+              <svg class="w-4 h-4 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-sm">Basic code editor</span>
+            </li>
+            <li class="flex items-center">
+              <svg class="w-4 h-4 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-sm">Community tutorials</span>
+            </li>
+            <li class="flex items-center">
+              <svg class="w-4 h-4 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-sm">Public project sharing</span>
+            </li>
+            <li class="flex items-center">
+              <svg class="w-4 h-4 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-sm">Discord community access</span>
+            </li>
+          </ul>
+          
+          <button class="w-full py-3 border border-primary text-primary rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors">
+            Get Started Free
+          </button>
+        </div>
+
+        <!-- Pro Plan -->
+        <div class="bg-card rounded-xl border-2 border-primary p-8 relative shadow-glow">
+          <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-medium">
+            Most Popular
+          </div>
+          
+          <div class="text-center mb-8">
+            <h3 class="text-2xl font-bold mb-2">Pro</h3>
+            <p class="text-muted-foreground mb-4">For serious developers</p>
+            <div class="text-4xl font-bold mb-2">
+              <span class="monthly-price">$19</span>
+              <span class="yearly-price hidden">$15</span>
+              <span class="text-lg text-muted-foreground">/month</span>
+            </div>
+            <p class="text-sm text-muted-foreground">
+              <span class="monthly-pricing">Billed monthly</span>
+              <span class="yearly-pricing hidden">Billed yearly ($180/year)</span>
+            </p>
+          </div>
+          
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center">
+              <svg class="w-4 h-4 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-sm">Unlimited AI code generation</span>
+            </li>
+            <li class="flex items-center">
+              <svg class="w-4 h-4 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-sm">Advanced code editor with AI copilot</span>
+            </li>
+            <li class="flex items-center">
+              <svg class="w-4 h-4 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-sm">Real-time collaboration (up to 5 members)</span>
+            </li>
+            <li class="flex items-center">
+              <svg class="w-4 h-4 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-sm">Private repositories</span>
+            </li>
+            <li class="flex items-center">
+              <svg class="w-4 h-4 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-sm">AI debugging & optimization</span>
+            </li>
+            <li class="flex items-center">
+              <svg class="w-4 h-4 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-sm">Premium tutorials & courses</span>
+            </li>
+            <li class="flex items-center">
+              <svg class="w-4 h-4 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-sm">Priority support</span>
+            </li>
+          </ul>
+          
+          <button class="w-full py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors">
+            Start Pro Trial
+          </button>
+        </div>
+
+        <!-- Enterprise Plan -->
+        <div class="bg-card rounded-xl border p-8 relative">
+          <div class="text-center mb-8">
+            <h3 class="text-2xl font-bold mb-2">Enterprise</h3>
+            <p class="text-muted-foreground mb-4">For teams and organizations</p>
+            <div class="text-4xl font-bold mb-2">
+              <span class="monthly-price">$99</span>
+              <span class="yearly-price hidden">$79</span>
+              <span class="text-lg text-muted-foreground">/month</span>
+            </div>
+            <p class="text-sm text-muted-foreground">
+              <span class="monthly-pricing">Per team (10 members)</span>
+              <span class="yearly-pricing hidden">Per team, yearly ($948/year)</span>
+            </p>
+          </div>
+          
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center">
+              <svg class="w-4 h-4 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-sm">Everything in Pro</span>
+            </li>
+            <li class="flex items-center">
+              <svg class="w-4 h-4 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-sm">Unlimited team members</span>
+            </li>
+            <li class="flex items-center">
+              <svg class="w-4 h-4 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-sm">Advanced team analytics</span>
+            </li>
+            <li class="flex items-center">
+              <svg class="w-4 h-4 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-sm">Custom AI model training</span>
+            </li>
+            <li class="flex items-center">
+              <svg class="w-4 h-4 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-sm">SSO & advanced security</span>
+            </li>
+            <li class="flex items-center">
+              <svg class="w-4 h-4 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-sm">Dedicated account manager</span>
+            </li>
+            <li class="flex items-center">
+              <svg class="w-4 h-4 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-sm">24/7 premium support</span>
+            </li>
+          </ul>
+          
+          <button class="w-full py-3 border border-primary text-primary rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors">
+            Contact Sales
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature Comparison -->
+  <section class="py-24 bg-muted/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Compare All Features</h2>
+        <p class="text-xl text-muted-foreground max-w-2xl mx-auto">
+          See exactly what's included in each plan to make the best choice for your needs.
+        </p>
+      </div>
+      
+      <div class="bg-card rounded-xl border overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full">
+            <thead class="bg-muted/50">
+              <tr>
+                <th class="px-6 py-4 text-left font-semibold">Features</th>
+                <th class="px-6 py-4 text-center font-semibold">Free</th>
+                <th class="px-6 py-4 text-center font-semibold text-primary">Pro</th>
+                <th class="px-6 py-4 text-center font-semibold">Enterprise</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y">
+              <tr>
+                <td class="px-6 py-4 font-medium">AI Code Generation</td>
+                <td class="px-6 py-4 text-center">5/day</td>
+                <td class="px-6 py-4 text-center">Unlimited</td>
+                <td class="px-6 py-4 text-center">Unlimited</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium">Code Editor</td>
+                <td class="px-6 py-4 text-center">Basic</td>
+                <td class="px-6 py-4 text-center">Advanced + AI Copilot</td>
+                <td class="px-6 py-4 text-center">Advanced + AI Copilot</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium">Real-time Collaboration</td>
+                <td class="px-6 py-4 text-center">❌</td>
+                <td class="px-6 py-4 text-center">Up to 5 members</td>
+                <td class="px-6 py-4 text-center">Unlimited</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium">Private Repositories</td>
+                <td class="px-6 py-4 text-center">❌</td>
+                <td class="px-6 py-4 text-center">✅</td>
+                <td class="px-6 py-4 text-center">✅</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium">AI Debugging</td>
+                <td class="px-6 py-4 text-center">❌</td>
+                <td class="px-6 py-4 text-center">✅</td>
+                <td class="px-6 py-4 text-center">✅</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium">Premium Tutorials</td>
+                <td class="px-6 py-4 text-center">❌</td>
+                <td class="px-6 py-4 text-center">✅</td>
+                <td class="px-6 py-4 text-center">✅</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium">Team Analytics</td>
+                <td class="px-6 py-4 text-center">❌</td>
+                <td class="px-6 py-4 text-center">Basic</td>
+                <td class="px-6 py-4 text-center">Advanced</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium">Custom AI Training</td>
+                <td class="px-6 py-4 text-center">❌</td>
+                <td class="px-6 py-4 text-center">❌</td>
+                <td class="px-6 py-4 text-center">✅</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium">SSO & Security</td>
+                <td class="px-6 py-4 text-center">❌</td>
+                <td class="px-6 py-4 text-center">❌</td>
+                <td class="px-6 py-4 text-center">✅</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium">Support Level</td>
+                <td class="px-6 py-4 text-center">Community</td>
+                <td class="px-6 py-4 text-center">Priority</td>
+                <td class="px-6 py-4 text-center">24/7 Premium</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
+        <p class="text-xl text-muted-foreground">
+          Everything you need to know about our pricing and plans.
+        </p>
+      </div>
+      
+      <div class="space-y-6">
+        <div class="bg-card rounded-lg border p-6">
+          <button class="w-full text-left flex items-center justify-between font-semibold" onclick="toggleFAQ(this)">
+            <span>Can I switch plans at any time?</span>
+            <svg class="w-5 h-5 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+          <div class="mt-4 text-muted-foreground hidden">
+            Yes! You can upgrade or downgrade your plan at any time. Changes will be prorated and reflected in your next billing cycle.
+          </div>
+        </div>
+        
+        <div class="bg-card rounded-lg border p-6">
+          <button class="w-full text-left flex items-center justify-between font-semibold" onclick="toggleFAQ(this)">
+            <span>Is there a free trial for paid plans?</span>
+            <svg class="w-5 h-5 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+          <div class="mt-4 text-muted-foreground hidden">
+            Absolutely! We offer a 14-day free trial for both Pro and Enterprise plans. No credit card required to start your trial.
+          </div>
+        </div>
+        
+        <div class="bg-card rounded-lg border p-6">
+          <button class="w-full text-left flex items-center justify-between font-semibold" onclick="toggleFAQ(this)">
+            <span>What happens to my projects if I downgrade?</span>
+            <svg class="w-5 h-5 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+          <div class="mt-4 text-muted-foreground hidden">
+            Your projects and data are always safe. When downgrading, some advanced features may become unavailable, but your code and projects remain accessible.
+          </div>
+        </div>
+        
+        <div class="bg-card rounded-lg border p-6">
+          <button class="w-full text-left flex items-center justify-between font-semibold" onclick="toggleFAQ(this)">
+            <span>Do you offer educational discounts?</span>
+            <svg class="w-5 h-5 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+          <div class="mt-4 text-muted-foreground hidden">
+            Yes! We offer 50% off all paid plans for students and educators. Contact our support team with your educational email for verification.
+          </div>
+        </div>
+        
+        <div class="bg-card rounded-lg border p-6">
+          <button class="w-full text-left flex items-center justify-between font-semibold" onclick="toggleFAQ(this)">
+            <span>What payment methods do you accept?</span>
+            <svg class="w-5 h-5 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+          <div class="mt-4 text-muted-foreground hidden">
+            We accept all major credit cards (Visa, MasterCard, American Express), PayPal, and bank transfers for Enterprise customers.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-24 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        Ready to Start Coding with AI?
+      </h2>
+      <p class="text-xl text-blue-100 mb-8">
+        Join thousands of developers who are already building the future with AI assistance.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/signup" class="inline-flex items-center px-8 py-4 rounded-lg bg-white text-blue-600 font-semibold hover:bg-gray-100 transition-colors">
+          Start Free Trial
+        </a>
+        <a href="/contact" class="inline-flex items-center px-8 py-4 rounded-lg border border-white text-white hover:bg-white/10 transition-colors">
+          Contact Sales
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  function toggleFAQ(button) {
+    const content = button.nextElementSibling;
+    const icon = button.querySelector('svg');
+    
+    if (content.classList.contains('hidden')) {
+      content.classList.remove('hidden');
+      icon.style.transform = 'rotate(180deg)';
+    } else {
+      content.classList.add('hidden');
+      icon.style.transform = 'rotate(0deg)';
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const monthlyTab = document.getElementById('monthly-tab');
+    const yearlyTab = document.getElementById('yearly-tab');
+    
+    function switchToMonthly() {
+      monthlyTab.classList.add('bg-primary', 'text-primary-foreground');
+      monthlyTab.classList.remove('text-muted-foreground');
+      yearlyTab.classList.remove('bg-primary', 'text-primary-foreground');
+      yearlyTab.classList.add('text-muted-foreground');
+      
+      document.querySelectorAll('.monthly-price').forEach(el => el.classList.remove('hidden'));
+      document.querySelectorAll('.yearly-price').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.monthly-pricing').forEach(el => el.classList.remove('hidden'));
+      document.querySelectorAll('.yearly-pricing').forEach(el => el.classList.add('hidden'));
+    }
+    
+    function switchToYearly() {
+      yearlyTab.classList.add('bg-primary', 'text-primary-foreground');
+      yearlyTab.classList.remove('text-muted-foreground');
+      monthlyTab.classList.remove('bg-primary', 'text-primary-foreground');
+      monthlyTab.classList.add('text-muted-foreground');
+      
+      document.querySelectorAll('.monthly-price').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.yearly-price').forEach(el => el.classList.remove('hidden'));
+      document.querySelectorAll('.monthly-pricing').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.yearly-pricing').forEach(el => el.classList.remove('hidden'));
+    }
+    
+    monthlyTab.addEventListener('click', switchToMonthly);
+    yearlyTab.addEventListener('click', switchToYearly);
+  });
+</script>
+</Layout>
