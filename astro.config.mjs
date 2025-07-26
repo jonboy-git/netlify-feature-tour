@@ -1,13 +1,22 @@
 import { defineConfig } from "astro/config";
-import preact from "@astrojs/preact";
+import react from "@astrojs/react";
+import tailwind from "@astrojs/tailwind";
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://feature-tour.netlify.app',
+  site: 'https://ultimate-ai-coding.netlify.app',
   integrations: [
-    preact(),
+    react(),
+    tailwind({
+      applyBaseStyles: false,
+    }),
     sitemap({
-      canonicalURL: 'https://feature-tour.netlify.app'
+      canonicalURL: 'https://ultimate-ai-coding.netlify.app'
     })
   ],
+  vite: {
+    optimizeDeps: {
+      include: ['react', 'react-dom', '@monaco-editor/react']
+    }
+  }
 });

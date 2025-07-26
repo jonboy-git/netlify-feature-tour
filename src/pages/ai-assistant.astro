@@ -1,0 +1,498 @@
+---
+import Layout from '../components/layout.astro';
+---
+
+<Layout
+  title="AI Assistant - Your Intelligent Coding Companion"
+  description="Get instant help with coding problems, debug issues, and learn best practices with our advanced AI assistant."
+>
+  <div class="min-h-screen bg-gray-50 dark:bg-dark-900">
+    <!-- Hero Section -->
+    <div class="bg-gradient-to-br from-purple-600 via-blue-600 to-indigo-700 text-white py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <h1 class="text-4xl lg:text-5xl font-bold mb-6">
+            Meet Your AI Coding Assistant
+          </h1>
+          <p class="text-xl lg:text-2xl text-purple-100 mb-8 max-w-3xl mx-auto">
+            Get instant help with coding problems, explanations, debugging, and code optimization from our advanced AI.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- AI Chat Interface -->
+        <div class="lg:col-span-2">
+          <div class="bg-white dark:bg-dark-800 rounded-xl shadow-lg overflow-hidden h-[600px] flex flex-col">
+            <!-- Chat Header -->
+            <div class="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-6">
+              <div class="flex items-center space-x-4">
+                <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold">AI Assistant</h3>
+                  <p class="text-purple-100">Ask me anything about coding!</p>
+                </div>
+                <div class="ml-auto">
+                  <span class="inline-flex items-center px-3 py-1 bg-green-500 text-white text-sm rounded-full">
+                    <span class="w-2 h-2 bg-white rounded-full mr-2"></span>
+                    Online
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Chat Messages -->
+            <div id="chatMessages" class="flex-1 p-6 overflow-y-auto space-y-4">
+              <!-- Welcome Message -->
+              <div class="flex items-start space-x-3">
+                <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
+                  <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </div>
+                <div class="bg-gray-100 dark:bg-dark-700 rounded-lg p-4 max-w-xs lg:max-w-md">
+                  <p class="text-gray-900 dark:text-gray-100">
+                    Hi! I'm your AI coding assistant. I can help you with:
+                    <br><br>
+                    • Debugging code<br>
+                    • Code optimization<br>
+                    • Explaining concepts<br>
+                    • Best practices<br>
+                    • Algorithm design<br><br>
+                    What would you like to work on today?
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Chat Input -->
+            <div class="border-t border-gray-200 dark:border-dark-700 p-4">
+              <div class="flex space-x-4">
+                <div class="flex-1">
+                  <div class="relative">
+                    <input
+                      type="text"
+                      id="chatInput"
+                      placeholder="Ask me about your code..."
+                      class="w-full px-4 py-3 pr-12 border border-gray-300 dark:border-dark-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 dark:bg-dark-700 dark:text-white"
+                    />
+                    <button
+                      id="sendBtn"
+                      class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-purple-600 hover:bg-purple-700 text-white p-2 rounded-lg transition-colors"
+                    >
+                      <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Quick Actions -->
+              <div class="flex flex-wrap gap-2 mt-3">
+                <button class="quick-action px-3 py-1 text-sm bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full hover:bg-purple-200 dark:hover:bg-purple-900/50 transition-colors" data-prompt="How do I debug this JavaScript error?">
+                  Debug Help
+                </button>
+                <button class="quick-action px-3 py-1 text-sm bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full hover:bg-blue-200 dark:hover:bg-blue-900/50 transition-colors" data-prompt="Explain this algorithm to me">
+                  Explain Code
+                </button>
+                <button class="quick-action px-3 py-1 text-sm bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full hover:bg-green-200 dark:hover:bg-green-900/50 transition-colors" data-prompt="How can I optimize this code?">
+                  Optimize
+                </button>
+                <button class="quick-action px-3 py-1 text-sm bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded-full hover:bg-orange-200 dark:hover:bg-orange-900/50 transition-colors" data-prompt="What are the best practices for this?">
+                  Best Practices
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Features Sidebar -->
+        <div class="space-y-6">
+          <!-- AI Capabilities -->
+          <div class="bg-white dark:bg-dark-800 rounded-xl shadow-lg overflow-hidden">
+            <div class="bg-gray-50 dark:bg-dark-700 px-6 py-4 border-b border-gray-200 dark:border-dark-600">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white">AI Capabilities</h3>
+            </div>
+            <div class="p-6 space-y-4">
+              <div class="flex items-start space-x-3">
+                <div class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-900 dark:text-white">Code Analysis</h4>
+                  <p class="text-sm text-gray-600 dark:text-gray-300">Analyze code quality, complexity, and potential issues</p>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-3">
+                <div class="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-900 dark:text-white">Smart Suggestions</h4>
+                  <p class="text-sm text-gray-600 dark:text-gray-300">Get intelligent code completion and improvements</p>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-3">
+                <div class="w-8 h-8 bg-purple-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-900 dark:text-white">Refactoring</h4>
+                  <p class="text-sm text-gray-600 dark:text-gray-300">Automatically refactor and optimize your code</p>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-3">
+                <div class="w-8 h-8 bg-red-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-900 dark:text-white">Bug Detection</h4>
+                  <p class="text-sm text-gray-600 dark:text-gray-300">Find and fix bugs before they become problems</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Example Queries -->
+          <div class="bg-white dark:bg-dark-800 rounded-xl shadow-lg overflow-hidden">
+            <div class="bg-gray-50 dark:bg-dark-700 px-6 py-4 border-b border-gray-200 dark:border-dark-600">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Try These Examples</h3>
+            </div>
+            <div class="p-6 space-y-3">
+              <button class="example-query w-full text-left p-3 border border-gray-200 dark:border-dark-600 rounded-lg hover:border-purple-500 dark:hover:border-purple-400 transition-colors" data-query="Explain how async/await works in JavaScript">
+                <div class="font-medium text-gray-900 dark:text-white">Explain async/await</div>
+                <div class="text-sm text-gray-600 dark:text-gray-300">Learn about asynchronous JavaScript</div>
+              </button>
+
+              <button class="example-query w-full text-left p-3 border border-gray-200 dark:border-dark-600 rounded-lg hover:border-purple-500 dark:hover:border-purple-400 transition-colors" data-query="How do I optimize this sorting algorithm?">
+                <div class="font-medium text-gray-900 dark:text-white">Optimize algorithms</div>
+                <div class="text-sm text-gray-600 dark:text-gray-300">Improve performance and efficiency</div>
+              </button>
+
+              <button class="example-query w-full text-left p-3 border border-gray-200 dark:border-dark-600 rounded-lg hover:border-purple-500 dark:hover:border-purple-400 transition-colors" data-query="What's wrong with my React component?">
+                <div class="font-medium text-gray-900 dark:text-white">Debug React issues</div>
+                <div class="text-sm text-gray-600 dark:text-gray-300">Fix common React problems</div>
+              </button>
+
+              <button class="example-query w-full text-left p-3 border border-gray-200 dark:border-dark-600 rounded-lg hover:border-purple-500 dark:hover:border-purple-400 transition-colors" data-query="Show me best practices for API design">
+                <div class="font-medium text-gray-900 dark:text-white">API best practices</div>
+                <div class="text-sm text-gray-600 dark:text-gray-300">Design better APIs</div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Code Upload -->
+          <div class="bg-white dark:bg-dark-800 rounded-xl shadow-lg overflow-hidden">
+            <div class="bg-gray-50 dark:bg-dark-700 px-6 py-4 border-b border-gray-200 dark:border-dark-600">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Upload Code</h3>
+            </div>
+            <div class="p-6">
+              <div class="border-2 border-dashed border-gray-300 dark:border-dark-600 rounded-lg p-6 text-center">
+                <svg class="w-12 h-12 text-gray-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                </svg>
+                <p class="text-gray-600 dark:text-gray-300 mb-2">Drop your code file here</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400">or click to browse</p>
+                <input type="file" id="codeUpload" class="hidden" accept=".js,.ts,.py,.java,.cpp,.html,.css,.json">
+                <button onclick="document.getElementById('codeUpload').click()" class="mt-4 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors">
+                  Choose File
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI Assistant Script -->
+  <script>
+    class AIAssistant {
+      constructor() {
+        this.chatMessages = document.getElementById('chatMessages');
+        this.chatInput = document.getElementById('chatInput');
+        this.sendBtn = document.getElementById('sendBtn');
+        
+        this.initializeEventListeners();
+      }
+
+      initializeEventListeners() {
+        // Send button click
+        this.sendBtn.addEventListener('click', () => this.sendMessage());
+        
+        // Enter key press
+        this.chatInput.addEventListener('keypress', (e) => {
+          if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            this.sendMessage();
+          }
+        });
+
+        // Quick actions
+        document.querySelectorAll('.quick-action').forEach(btn => {
+          btn.addEventListener('click', () => {
+            this.chatInput.value = btn.dataset.prompt;
+            this.sendMessage();
+          });
+        });
+
+        // Example queries
+        document.querySelectorAll('.example-query').forEach(btn => {
+          btn.addEventListener('click', () => {
+            this.chatInput.value = btn.dataset.query;
+            this.sendMessage();
+          });
+        });
+
+        // File upload
+        const fileInput = document.getElementById('codeUpload');
+        fileInput.addEventListener('change', (e) => this.handleFileUpload(e));
+      }
+
+      sendMessage() {
+        const message = this.chatInput.value.trim();
+        if (!message) return;
+
+        this.addUserMessage(message);
+        this.chatInput.value = '';
+        
+        // Show typing indicator
+        this.showTypingIndicator();
+        
+        // Simulate AI response
+        setTimeout(() => {
+          this.hideTypingIndicator();
+          this.addAIResponse(message);
+        }, 1500);
+      }
+
+      addUserMessage(message) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'flex items-start space-x-3 justify-end';
+        messageDiv.innerHTML = `
+          <div class="bg-purple-600 text-white rounded-lg p-4 max-w-xs lg:max-w-md">
+            <p>${this.escapeHtml(message)}</p>
+          </div>
+          <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="text-sm font-medium text-gray-700">U</span>
+          </div>
+        `;
+        this.chatMessages.appendChild(messageDiv);
+        this.scrollToBottom();
+      }
+
+      addAIResponse(userMessage) {
+        const response = this.generateAIResponse(userMessage);
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'flex items-start space-x-3';
+        messageDiv.innerHTML = `
+          <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
+            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
+          <div class="bg-gray-100 dark:bg-dark-700 rounded-lg p-4 max-w-xs lg:max-w-md">
+            <div class="text-gray-900 dark:text-gray-100">${response}</div>
+          </div>
+        `;
+        this.chatMessages.appendChild(messageDiv);
+        this.scrollToBottom();
+      }
+
+      generateAIResponse(message) {
+        const lowerMessage = message.toLowerCase();
+        
+        if (lowerMessage.includes('debug') || lowerMessage.includes('error')) {
+          return `I'd be happy to help you debug your code! To provide the best assistance, please share:
+          <br><br>
+          • The specific error message you're seeing<br>
+          • The relevant code snippet<br>
+          • What you expected to happen<br>
+          • Your environment (browser, Node.js version, etc.)<br><br>
+          Common debugging strategies include using console.log(), browser dev tools, and step-by-step code execution. What specific issue are you facing?`;
+        }
+        
+        if (lowerMessage.includes('async') || lowerMessage.includes('await')) {
+          return `Async/await is a powerful feature for handling asynchronous operations in JavaScript!
+          <br><br>
+          <strong>Key concepts:</strong><br>
+          • <code>async</code> functions always return a Promise<br>
+          • <code>await</code> pauses execution until Promise resolves<br>
+          • Use try/catch for error handling<br><br>
+          <strong>Example:</strong><br>
+          <pre style="background: #f4f4f4; padding: 8px; border-radius: 4px; margin: 8px 0;">
+async function fetchData() {
+  try {
+    const response = await fetch('/api/data');
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}</pre>
+          Would you like me to explain any specific aspect in more detail?`;
+        }
+        
+        if (lowerMessage.includes('optimize') || lowerMessage.includes('performance')) {
+          return `Great question about optimization! Here are some key strategies:
+          <br><br>
+          <strong>General principles:</strong><br>
+          • Measure before optimizing (use profilers)<br>
+          • Focus on algorithmic complexity first<br>
+          • Optimize the critical path<br>
+          • Consider memory vs. time tradeoffs<br><br>
+          <strong>Common optimizations:</strong><br>
+          • Use efficient data structures<br>
+          • Minimize DOM manipulation<br>
+          • Implement caching where appropriate<br>
+          • Reduce network requests<br><br>
+          Could you share the specific code you'd like to optimize? I can provide targeted suggestions!`;
+        }
+        
+        if (lowerMessage.includes('react')) {
+          return `I'm here to help with React! Common issues and solutions:
+          <br><br>
+          <strong>Common problems:</strong><br>
+          • State updates not rendering → Check if you're mutating state<br>
+          • Infinite re-renders → Review useEffect dependencies<br>
+          • Performance issues → Consider React.memo, useMemo, useCallback<br>
+          • Props not updating → Ensure props are passed correctly<br><br>
+          <strong>Best practices:</strong><br>
+          • Use functional components with hooks<br>
+          • Keep components small and focused<br>
+          • Lift state up when needed<br>
+          • Use TypeScript for better development experience<br><br>
+          What specific React issue are you encountering?`;
+        }
+        
+        if (lowerMessage.includes('api') || lowerMessage.includes('design')) {
+          return `API design is crucial for maintainable applications! Here are key principles:
+          <br><br>
+          <strong>RESTful principles:</strong><br>
+          • Use appropriate HTTP methods (GET, POST, PUT, DELETE)<br>
+          • Design intuitive URL structures<br>
+          • Return consistent response formats<br>
+          • Use proper status codes<br><br>
+          <strong>Best practices:</strong><br>
+          • Version your APIs (/v1/, /v2/)<br>
+          • Implement proper error handling<br>
+          • Add rate limiting and authentication<br>
+          • Document your API thoroughly<br>
+          • Use pagination for large datasets<br><br>
+          Would you like me to elaborate on any specific aspect of API design?`;
+        }
+        
+        // Default response
+        return `I understand you're asking about "${message}". I'm here to help with all aspects of coding!
+        <br><br>
+        I can assist with:
+        <br>• Code debugging and troubleshooting<br>
+        • Algorithm explanations and optimization<br>
+        • Best practices for various languages<br>
+        • Code review and suggestions<br>
+        • Architecture and design patterns<br><br>
+        Could you provide more specific details about what you'd like help with? Feel free to share code snippets, error messages, or describe the problem you're trying to solve!`;
+      }
+
+      showTypingIndicator() {
+        const typingDiv = document.createElement('div');
+        typingDiv.id = 'typing-indicator';
+        typingDiv.className = 'flex items-start space-x-3';
+        typingDiv.innerHTML = `
+          <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
+            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
+          <div class="bg-gray-100 dark:bg-dark-700 rounded-lg p-4">
+            <div class="flex space-x-1">
+              <div class="w-2 h-2 bg-gray-400 rounded-full animate-pulse"></div>
+              <div class="w-2 h-2 bg-gray-400 rounded-full animate-pulse" style="animation-delay: 0.2s"></div>
+              <div class="w-2 h-2 bg-gray-400 rounded-full animate-pulse" style="animation-delay: 0.4s"></div>
+            </div>
+          </div>
+        `;
+        this.chatMessages.appendChild(typingDiv);
+        this.scrollToBottom();
+      }
+
+      hideTypingIndicator() {
+        const typingIndicator = document.getElementById('typing-indicator');
+        if (typingIndicator) {
+          typingIndicator.remove();
+        }
+      }
+
+      handleFileUpload(event) {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const content = e.target.result;
+          const message = `I've uploaded a ${file.name} file. Can you analyze this code and provide feedback?`;
+          
+          this.addUserMessage(message);
+          
+          // Add code preview
+          const codeDiv = document.createElement('div');
+          codeDiv.className = 'flex items-start space-x-3 justify-end';
+          codeDiv.innerHTML = `
+            <div class="bg-purple-600 text-white rounded-lg p-4 max-w-xs lg:max-w-md">
+              <div class="text-sm font-medium mb-2">${file.name}</div>
+              <pre class="text-xs bg-purple-700 p-2 rounded overflow-x-auto">${this.escapeHtml(content.substring(0, 200))}${content.length > 200 ? '...' : ''}</pre>
+            </div>
+            <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center flex-shrink-0">
+              <span class="text-sm font-medium text-gray-700">U</span>
+            </div>
+          `;
+          this.chatMessages.appendChild(codeDiv);
+          
+          // Show typing and respond
+          this.showTypingIndicator();
+          setTimeout(() => {
+            this.hideTypingIndicator();
+            this.addAIResponse(`code analysis for ${file.name}`);
+          }, 2000);
+        };
+        reader.readAsText(file);
+      }
+
+      escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+      }
+
+      scrollToBottom() {
+        setTimeout(() => {
+          this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
+        }, 100);
+      }
+    }
+
+    // Initialize AI Assistant when DOM is loaded
+    document.addEventListener('DOMContentLoaded', () => {
+      new AIAssistant();
+    });
+  </script>
+</Layout>

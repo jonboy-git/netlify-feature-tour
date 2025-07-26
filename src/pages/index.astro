@@ -2,107 +2,219 @@
 import Layout from '../components/layout.astro';
 ---
 
-<style>
-.steps {
-  background: var(--light);
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: min(90vw, 250px);
-  justify-content: center;
-  margin-top: 3rem;
-  padding: 5rem 5vw;
-  width: 100vw;
-}
-
-@media (min-width: 550px) {
-  .steps {
-    grid-template-columns: repeat(2, min(calc(50% - 1rem), 250px));
-  }
-}
-
-@media (min-width: 1050px) {
-  .steps {
-    grid-template-columns: repeat(4, min(calc(25% - 1.5rem), 250px));
-  }
-}
-
-.step {
-  background: var(--white);
-  border: 1px solid var(--lightBorder);
-  border-radius: var(--card-radius);
-  display: flex;
-  flex-direction: column;
-  font-size: 0.75rem;
-  padding: 1rem 1.5rem 1.5rem;
-  text-align: left;
-  box-shadow: 0 2px 4px rgb(14 30 37 / 12%);
-}
-
-.stepHeading {
-  font-size: 1rem;
-  font-weight: 600;
-  margin: 0;
-}
-
-
-</style>
-
 <Layout
-  title="Netlify Feature Tour"
-  description="This is a small site to show the most powerful features of Netlify quickly!"
-  home
+  title="AI Coder - The Ultimate AI-Powered Coding Platform"
+  description="Write, test, and deploy code faster than ever with AI assistance. The most advanced coding platform for developers."
+  home={true}
 >
-  <main class="steps">
-    <section class="step">
-      <h2 class="stepHeading">Deploy Previews</h2>
-      <p>
-        Every pull request is automatically built in an
-        identical-to-production environment for
-        <strong>painless QA, feedback, and review.</strong>
-      </p>
-      <a href="/deploy-previews" class="button">
-        Learn more <span class="sr-only">about Deploy Previews</span>
-      </a>
-    </section>
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 text-white">
+    <div class="absolute inset-0 bg-black/20"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+      <div class="text-center">
+        <h1 class="text-4xl lg:text-6xl font-bold mb-6 animate-fade-in">
+          Code with the Power of
+          <span class="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">
+            Artificial Intelligence
+          </span>
+        </h1>
+        <p class="text-xl lg:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto animate-slide-up">
+          The ultimate AI-powered coding platform that helps you write, debug, and deploy code faster than ever before.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up">
+          <a href="/get-started" class="bg-white text-primary-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105">
+            Start Coding Now
+          </a>
+          <a href="/demo" class="border-2 border-white text-white hover:bg-white hover:text-primary-600 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105">
+            Watch Demo
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Floating code snippets animation -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden">
+      <div class="absolute top-20 left-10 animate-pulse-slow opacity-20">
+        <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 font-mono text-sm">
+          <div class="text-yellow-300">const</div>
+          <div class="text-blue-300">result = await ai.generate()</div>
+        </div>
+      </div>
+      <div class="absolute top-40 right-20 animate-pulse-slow opacity-20" style="animation-delay: 1s;">
+        <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 font-mono text-sm">
+          <div class="text-green-300">// AI-powered debugging</div>
+          <div class="text-white">if (error) fix(error)</div>
+        </div>
+      </div>
+      <div class="absolute bottom-20 left-20 animate-pulse-slow opacity-20" style="animation-delay: 2s;">
+        <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 font-mono text-sm">
+          <div class="text-purple-300">function smartComplete() {</div>
+          <div class="text-white">  return ai.suggest(code)</div>
+          <div class="text-purple-300">}</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section class="step">
-      <h2 class="stepHeading">Instant Rollbacks</h2>
-      <p>
-        Confidently ship to production with the knowledge that it’s a
-        one-click operation to roll back to a previous version of the site.
-        <strong>Instant disaster recovery!</strong>
-      </p>
-      <a href="/instant-rollbacks" class="button">
-        Learn more
-        <span class="sr-only">about Instant Rollbacks</span>
-      </a>
-    </section>
+  <!-- Features Section -->
+  <section class="py-20 bg-white dark:bg-dark-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          Everything You Need to Code Smarter
+        </h2>
+        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          Powerful AI-driven tools that adapt to your coding style and help you build amazing applications.
+        </p>
+      </div>
 
-    <section class="step">
-      <h2 class="stepHeading">Netlify Functions</h2>
-      <p>
-        <strong>Serverless functions are superpowers for web developers!</strong>
-        Securely handle server-like requirements at any scale with no
-        provisioning, scaling, or ops overhead.
-      </p>
-      <a href="/functions" class="button">
-      Learn more
-      <span class="sr-only">about Netlify Functions</span>
-      </a>
-    </section>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- AI Code Assistant -->
+        <div class="group p-8 rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-dark-800 dark:to-dark-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+          <div class="w-16 h-16 bg-blue-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">AI Code Assistant</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-6">
+            Get intelligent suggestions, auto-completions, and code explanations powered by advanced AI models.
+          </p>
+          <a href="/ai-assistant" class="text-blue-600 dark:text-blue-400 font-semibold hover:text-blue-700 dark:hover:text-blue-300">
+            Learn more →
+          </a>
+        </div>
 
-    <section class="step">
-      <h2 class="stepHeading">Netlify Forms</h2>
-      <p>
-        Handle user input with a single line of code. Netlify Forms allow
-        any HTML form to
-        <strong>
-            accept submissions, send notification emails, and trigger custom events.
-        </strong>
+        <!-- Smart Code Editor -->
+        <div class="group p-8 rounded-2xl bg-gradient-to-br from-green-50 to-emerald-100 dark:from-dark-800 dark:to-dark-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+          <div class="w-16 h-16 bg-green-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Smart Code Editor</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-6">
+            Professional-grade editor with syntax highlighting, intelligent formatting, and real-time collaboration.
+          </p>
+          <a href="/editor" class="text-green-600 dark:text-green-400 font-semibold hover:text-green-700 dark:hover:text-green-300">
+            Try editor →
+          </a>
+        </div>
+
+        <!-- Instant Deployment -->
+        <div class="group p-8 rounded-2xl bg-gradient-to-br from-purple-50 to-violet-100 dark:from-dark-800 dark:to-dark-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+          <div class="w-16 h-16 bg-purple-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M13 3l3.09 6.26L22 10.27l-5 4.87 1.18 6.88L13 18.77l-6.18 3.25L8 15.14 3 10.27l6.91-1.01L13 3z"/>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Instant Deployment</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-6">
+            Deploy your applications instantly to the cloud with automatic scaling and monitoring.
+          </p>
+          <a href="/deploy" class="text-purple-600 dark:text-purple-400 font-semibold hover:text-purple-700 dark:hover:text-purple-300">
+            Deploy now →
+          </a>
+        </div>
+
+        <!-- AI Debugging -->
+        <div class="group p-8 rounded-2xl bg-gradient-to-br from-red-50 to-rose-100 dark:from-dark-800 dark:to-dark-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+          <div class="w-16 h-16 bg-red-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">AI Debugging</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-6">
+            Automatically detect, explain, and fix bugs in your code with AI-powered debugging tools.
+          </p>
+          <a href="/debugging" class="text-red-600 dark:text-red-400 font-semibold hover:text-red-700 dark:hover:text-red-300">
+            Debug smart →
+          </a>
+        </div>
+
+        <!-- Code Playground -->
+        <div class="group p-8 rounded-2xl bg-gradient-to-br from-yellow-50 to-amber-100 dark:from-dark-800 dark:to-dark-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+          <div class="w-16 h-16 bg-yellow-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Code Playground</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-6">
+            Experiment with code, test ideas, and share snippets in our interactive playground environment.
+          </p>
+          <a href="/playground" class="text-yellow-600 dark:text-yellow-400 font-semibold hover:text-yellow-700 dark:hover:text-yellow-300">
+            Play now →
+          </a>
+        </div>
+
+        <!-- Learning Hub -->
+        <div class="group p-8 rounded-2xl bg-gradient-to-br from-cyan-50 to-teal-100 dark:from-dark-800 dark:to-dark-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+          <div class="w-16 h-16 bg-cyan-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Learning Hub</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-6">
+            Access interactive tutorials, coding challenges, and AI-personalized learning paths.
+          </p>
+          <a href="/learn" class="text-cyan-600 dark:text-cyan-400 font-semibold hover:text-cyan-700 dark:hover:text-cyan-300">
+            Start learning →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="py-20 bg-gray-50 dark:bg-dark-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          Trusted by Developers Worldwide
+        </h2>
+      </div>
+      
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <div class="text-4xl lg:text-5xl font-bold text-primary-600 dark:text-primary-400 mb-2">1M+</div>
+          <div class="text-gray-600 dark:text-gray-300 font-medium">Active Developers</div>
+        </div>
+        <div>
+          <div class="text-4xl lg:text-5xl font-bold text-primary-600 dark:text-primary-400 mb-2">50M+</div>
+          <div class="text-gray-600 dark:text-gray-300 font-medium">Lines of Code</div>
+        </div>
+        <div>
+          <div class="text-4xl lg:text-5xl font-bold text-primary-600 dark:text-primary-400 mb-2">10M+</div>
+          <div class="text-gray-600 dark:text-gray-300 font-medium">AI Suggestions</div>
+        </div>
+        <div>
+          <div class="text-4xl lg:text-5xl font-bold text-primary-600 dark:text-primary-400 mb-2">99.9%</div>
+          <div class="text-gray-600 dark:text-gray-300 font-medium">Uptime</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-gradient-to-r from-primary-600 to-primary-800 text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl lg:text-4xl font-bold mb-6">
+        Ready to Transform Your Coding Experience?
+      </h2>
+      <p class="text-xl text-blue-100 mb-8">
+        Join millions of developers who are already coding smarter with AI assistance.
       </p>
-      <a href="/netlify-forms" class="button">
-        Learn more <span class="sr-only">about Netlify Forms</span>
-      </a>
-    </section>
-  </main>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/get-started" class="bg-white text-primary-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105">
+          Get Started Free
+        </a>
+        <a href="/pricing" class="border-2 border-white text-white hover:bg-white hover:text-primary-600 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105">
+          View Pricing
+        </a>
+      </div>
+    </div>
+  </section>
 </Layout>
