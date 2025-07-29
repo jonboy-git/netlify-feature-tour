@@ -1,0 +1,74 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+rule_files:
+  # - "first_rules.yml"
+  # - "second_rules.yml"
+
+scrape_configs:
+  # Prometheus itself
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  # Node Exporter for system metrics
+  - job_name: 'node-exporter'
+    static_configs:
+      - targets: ['node-exporter:9100']
+
+  # Nginx metrics
+  - job_name: 'nginx'
+    scrape_interval: 10s
+    metrics_path: /nginx_status
+    static_configs:
+      - targets: ['nginx-lb:80']
+
+  # MySQL metrics (requires mysqld_exporter)
+  - job_name: 'mysql-master'
+    static_configs:
+      - targets: ['db-master:3306']
+    scrape_interval: 30s
+
+  # Redis metrics (requires redis_exporter)
+  - job_name: 'redis'
+    static_configs:
+      - targets: ['redis:6379']
+    scrape_interval: 30s
+
+  # Web application health checks
+  - job_name: 'web-servers'
+    scrape_interval: 10s
+    metrics_path: /health
+    static_configs:
+      - targets: 
+        - 'web1:80'
+        - 'web2:80'
+        - 'web3:80'
+
+  # Streaming server health
+  - job_name: 'streaming-server'
+    scrape_interval: 10s
+    metrics_path: /health
+    static_configs:
+      - targets: ['streaming-server:80']
+
+  # Custom application metrics (if implemented)
+  - job_name: 'iptv-app-metrics'
+    scrape_interval: 30s
+    metrics_path: /metrics
+    static_configs:
+      - targets:
+        - 'web1:80'
+        - 'web2:80'
+        - 'web3:80'
+
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+          # - alertmanager:9093
+
+# Example alerting rules (uncomment and configure as needed)
+# rule_files:
+#   - "alert_rules.yml"

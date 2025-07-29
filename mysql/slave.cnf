@@ -1,0 +1,49 @@
+[mysqld]
+# Server identification
+server-id = 2
+log-bin = mysql-bin
+binlog-format = ROW
+expire-logs-days = 7
+max-binlog-size = 100M
+
+# Slave settings
+relay-log = relay-bin
+relay-log-index = relay-bin.index
+read-only = 1
+super-read-only = 1
+
+# Replication settings
+replicate-do-db = iptv_panel
+slave-skip-errors = 1062
+
+# Performance optimizations
+innodb_buffer_pool_size = 256M
+innodb_log_file_size = 64M
+innodb_flush_method = O_DIRECT
+innodb_file_per_table = 1
+
+# Connection settings (optimized for read operations)
+max_connections = 300
+max_connect_errors = 1000000
+thread_cache_size = 50
+table_open_cache = 4000
+
+# Query cache (larger for read-heavy slave)
+query_cache_type = 1
+query_cache_size = 128M
+query_cache_limit = 4M
+
+# MyISAM settings
+key_buffer_size = 64M
+myisam_sort_buffer_size = 8M
+
+# Temporary tables
+tmp_table_size = 64M
+max_heap_table_size = 64M
+
+# Character set
+character-set-server = utf8mb4
+collation-server = utf8mb4_unicode_ci
+
+# Security settings
+local-infile = 0
