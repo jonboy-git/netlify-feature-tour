@@ -1,0 +1,48 @@
+[mysqld]
+# Server identification
+server-id = 1
+log-bin = mysql-bin
+binlog-format = ROW
+expire-logs-days = 7
+max-binlog-size = 100M
+
+# Replication settings
+sync-binlog = 1
+binlog-do-db = iptv_panel
+
+# Performance optimizations
+innodb_buffer_pool_size = 256M
+innodb_log_file_size = 64M
+innodb_flush_method = O_DIRECT
+innodb_file_per_table = 1
+
+# Connection settings
+max_connections = 200
+max_connect_errors = 1000000
+thread_cache_size = 50
+table_open_cache = 4000
+
+# Query cache (for read-heavy workloads)
+query_cache_type = 1
+query_cache_size = 64M
+query_cache_limit = 2M
+
+# MyISAM settings
+key_buffer_size = 32M
+myisam_sort_buffer_size = 8M
+
+# Temporary tables
+tmp_table_size = 64M
+max_heap_table_size = 64M
+
+# Slow query log
+slow_query_log = 1
+slow_query_log_file = /var/log/mysql/slow.log
+long_query_time = 2
+
+# Character set
+character-set-server = utf8mb4
+collation-server = utf8mb4_unicode_ci
+
+# Security settings
+local-infile = 0

@@ -1,0 +1,227 @@
+version: '3.8'
+
+services:
+  # Nginx Load Balancer
+  nginx-lb:
+    image: nginx:alpine
+    container_name: iptv-nginx-lb
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/ssl:/etc/nginx/ssl
+      - ./logs/nginx:/var/log/nginx
+    depends_on:
+      - web1
+      - web2
+      - web3
+    restart: unless-stopped
+    networks:
+      - iptv-network
+
+  # Web Server Instances (3 replicas for load balancing)
+  web1:
+    build: ./docker/php
+    container_name: iptv-web1
+    volumes:
+      - ./IPTV-Panel:/var/www/html
+      - ./logs/php1:/var/log/php
+    environment:
+      - DB_HOST=db-master
+      - DB_NAME=iptv_panel
+      - DB_USER=iptv_user
+      - DB_PASS=secure_password_123
+      - REDIS_HOST=redis
+    depends_on:
+      - db-master
+      - redis
+    restart: unless-stopped
+    networks:
+      - iptv-network
+
+  web2:
+    build: ./docker/php
+    container_name: iptv-web2
+    volumes:
+      - ./IPTV-Panel:/var/www/html
+      - ./logs/php2:/var/log/php
+    environment:
+      - DB_HOST=db-master
+      - DB_NAME=iptv_panel
+      - DB_USER=iptv_user
+      - DB_PASS=secure_password_123
+      - REDIS_HOST=redis
+    depends_on:
+      - db-master
+      - redis
+    restart: unless-stopped
+    networks:
+      - iptv-network
+
+  web3:
+    build: ./docker/php
+    container_name: iptv-web3
+    volumes:
+      - ./IPTV-Panel:/var/www/html
+      - ./logs/php3:/var/log/php
+    environment:
+      - DB_HOST=db-master
+      - DB_NAME=iptv_panel
+      - DB_USER=iptv_user
+      - DB_PASS=secure_password_123
+      - REDIS_HOST=redis
+    depends_on:
+      - db-master
+      - redis
+    restart: unless-stopped
+    networks:
+      - iptv-network
+
+  # MySQL Master Database
+  db-master:
+    image: mysql:8.0
+    container_name: iptv-db-master
+    environment:
+      - MYSQL_ROOT_PASSWORD=root_password_123
+      - MYSQL_DATABASE=iptv_panel
+      - MYSQL_USER=iptv_user
+      - MYSQL_PASSWORD=secure_password_123
+      - MYSQL_BINLOG_FORMAT=ROW
+    volumes:
+      - ./data/mysql-master:/var/lib/mysql
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./mysql/master.cnf:/etc/mysql/conf.d/master.cnf
+    ports:
+      - "3306:3306"
+    restart: unless-stopped
+    networks:
+      - iptv-network
+
+  # MySQL Slave Database (Read Replica)
+  db-slave:
+    image: mysql:8.0
+    container_name: iptv-db-slave
+    environment:
+      - MYSQL_ROOT_PASSWORD=root_password_123
+      - MYSQL_DATABASE=iptv_panel
+      - MYSQL_USER=iptv_user
+      - MYSQL_PASSWORD=secure_password_123
+    volumes:
+      - ./data/mysql-slave:/var/lib/mysql
+      - ./mysql/slave.cnf:/etc/mysql/conf.d/slave.cnf
+    ports:
+      - "3307:3306"
+    depends_on:
+      - db-master
+    restart: unless-stopped
+    networks:
+      - iptv-network
+
+  # Redis Cache
+  redis:
+    image: redis:alpine
+    container_name: iptv-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./data/redis:/data
+      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
+    command: redis-server /usr/local/etc/redis/redis.conf
+    restart: unless-stopped
+    networks:
+      - iptv-network
+
+  # Streaming Server (HLS/DASH)
+  streaming-server:
+    image: nginx:alpine
+    container_name: iptv-streaming
+    ports:
+      - "8080:80"
+      - "1935:1935"
+    volumes:
+      - ./nginx/streaming.conf:/etc/nginx/nginx.conf
+      - ./streams:/var/www/streams
+      - ./logs/streaming:/var/log/nginx
+    restart: unless-stopped
+    networks:
+      - iptv-network
+
+  # FFmpeg Transcoding Service
+  ffmpeg-transcoder:
+    build: ./docker/ffmpeg
+    container_name: iptv-transcoder
+    volumes:
+      - ./streams:/streams
+      - ./transcoding:/transcoding
+    environment:
+      - INPUT_DIR=/streams/input
+      - OUTPUT_DIR=/streams/output
+    restart: unless-stopped
+    networks:
+      - iptv-network
+
+  # Monitoring with Prometheus
+  prometheus:
+    image: prom/prometheus
+    container_name: iptv-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./data/prometheus:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+    restart: unless-stopped
+    networks:
+      - iptv-network
+
+  # Grafana Dashboard
+  grafana:
+    image: grafana/grafana
+    container_name: iptv-grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./data/grafana:/var/lib/grafana
+      - ./monitoring/grafana-datasources.yml:/etc/grafana/provisioning/datasources/datasources.yml
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin123
+    restart: unless-stopped
+    networks:
+      - iptv-network
+
+  # Node Exporter for System Metrics
+  node-exporter:
+    image: prom/node-exporter
+    container_name: iptv-node-exporter
+    ports:
+      - "9100:9100"
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+    command:
+      - '--path.procfs=/host/proc'
+      - '--path.sysfs=/host/sys'
+      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+    restart: unless-stopped
+    networks:
+      - iptv-network
+
+networks:
+  iptv-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+volumes:
+  mysql-master-data:
+  mysql-slave-data:
+  redis-data:
+  grafana-data:
+  prometheus-data:
